@@ -90,3 +90,25 @@ git push -u origin main
 ## Skills disponibles
 
 `/ev-prd`, `/ev-research`, `/ev-design`, `/ev-designsystem`, `/ev-wireframe`, `/ev-figma`, `/ev-roadmap`, `/ev-ship`, `/ev-update`, `/ev-help`.
+
+## 7. Ver los componentes en Storybook
+
+El repo incluye **Storybook**: un catálogo donde ves cada componente de `src/components/ui/` funcionando, con su documentación en español, sus variantes y controles para probarlas.
+
+```bash
+npm install
+npm run storybook
+```
+
+Se abre en `http://localhost:6006`. Qué encontrarás:
+
+- **Introducción**: cómo está montado el sistema y cómo se conecta con Figma.
+- **Fundamentos**: los tokens de `globals.css` (colores, radio y tipografía Geist) como muestras visuales.
+- **Componentes** agrupados por función (Acciones, Formularios, Navegación, Datos, Feedback, Overlays, Layout). Cada uno tiene una página **Docs** con qué es, cuándo usarlo, el archivo de código al que corresponde (el que se mapea con Code Connect) y ejemplos de todos sus estados.
+
+Detalles:
+
+- Storybook está configurado **solo en modo claro** (no cambia nada de la app).
+- Configuración en `.storybook/`; historias en `src/stories/components/*.stories.tsx`; páginas de documentación en `src/stories/docs/*.mdx`.
+- Para publicarlo como web estática: `npm run build-storybook` genera la carpeta `storybook-static/` (ignorada por git), que puedes subir a Vercel, Netlify o GitHub Pages.
+- Si añades un componente nuevo con `npx shadcn@latest add <nombre>`, crea también su `<nombre>.stories.tsx` copiando la estructura de uno existente.
