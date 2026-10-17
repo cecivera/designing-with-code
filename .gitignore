@@ -47,3 +47,6 @@ next-env.d.ts
 # storybook
 storybook-static
 *storybook.log
+
+# impeccable: platform-specific engine binary (reinstall with `npx impeccable install`)
+.claude/skills/impeccable/scripts/bin/
