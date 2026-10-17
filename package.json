@@ -10,7 +10,7 @@
     "postinstall": "node scripts/postinstall.js",
     "storybook": "storybook dev -p 6006",
     "build-storybook": "storybook build",
-    "chromatic": "chromatic --build-script-name build-storybook --exit-zero-on-changes",
+    "chromatic": "chromatic --build-script-name build-storybook",
     "figma:check": "figma connect parse --skip-update-check",
     "figma:publish": "figma connect publish"
   },

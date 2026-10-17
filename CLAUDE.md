@@ -98,12 +98,39 @@ When translating from Figma: extract tokens, map to the design system variables,
 # Project Instructions
 
 ## Design System
-- **Mode**: Dark only (`dark` class on `<html>`)
-- **Palette**: Neutral with warm olive undertone (oklch hue ~110)
-- **Brand accent**: `#EAFC4E` (chartreuse) — `--color-evergreen` / `text-evergreen`
+- **Mode**: Light only (`:root` tokens). No dark mode.
+- **Palette**: shadcn/ui neutral (see `src/app/globals.css` `:root`)
 - **Font**: Geist Sans (UI) + Geist Mono (code)
-- **Radius**: 0 on UI components (brand override), rounded on code blocks
-- **Transitions**: 300ms ease-out on all interactive elements
-- **Core color tokens**: background, foreground, muted, muted-foreground, border, primary
-- **Type scale**: Hero, Section heading, Label, Subheading, Body, Mono, Caption
-- **Full reference**: `docs/design-system.md`
+- **Radius**: 0 everywhere — `--radius: 0rem` in `globals.css` drives every `rounded-*` token. Only `rounded-full` (avatars, switch, radio, slider thumb, progress) stays circular.
+- **Figma source of truth**: [Evergreen DS](https://www.figma.com/design/a1gmYfPaf761xDNLendLgY/Evergreen-DS) — one page per component; variables named like the CSS tokens.
+- **Storybook**: one story file per component in `src/stories/components/`, published to Chromatic on every push.
+- **Code Connect**: templates in `src/figma/` (see `CODE-CONNECT.md`).
+
+## Regla de paridad Figma ↔ código (obligatoria)
+
+Ningún componente se publica en código si no coincide con su versión en Figma.
+
+### 1. Antes de subir un cambio de componente
+Cuando crees o cambies algo en `src/components/` o `src/app/globals.css`:
+1. Captura el componente en Figma con el MCP de Figma (`get_screenshot` del componente o del set de variantes).
+2. Captura la historia equivalente de Storybook: `npm run build-storybook`, sirve `storybook-static` y haz la captura con Playwright de `iframe.html?id=<story-id>`.
+3. Compáralas con los criterios de "idéntico" de abajo y escribe en el PR una tabla con cada criterio: ✅ o ❌ y qué difiere.
+4. Si algo difiere: o se arregla el código, o se arregla Figma, o se le pregunta a Cecilia. Nunca se sube "casi igual" sin decirlo.
+5. Si el cambio es en Figma, actualiza también el código, y al revés. Los dos lados cambian en el mismo PR.
+
+### 2. Nada llega a `main` sin aprobación
+- Todo cambio va en una rama y un pull request. **Claude no fusiona PRs en `main`**: los aprueba y fusiona Cecilia.
+- El check de **Chromatic** debe estar en verde. Si hay cambios visuales, Chromatic los marca y el check falla hasta que Cecilia los acepta en chromatic.com.
+
+### 3. Qué significa "idéntico"
+Coinciden, variante por variante y estado por estado:
+- **Color:** el mismo token. Nada de colores a mano: en código, clases como `bg-primary`; en Figma, variables.
+- **Tamaño:** alto y ancho del componente, y tamaño de los iconos.
+- **Espaciado:** padding interior y separación entre elementos.
+- **Radio:** 0, salvo los elementos circulares.
+- **Tipografía:** familia, peso, tamaño e interlineado (estilos de texto `heading/*`, `body/*`, `code/*`).
+- **Bordes y sombras:** grosor, color y si existen o no.
+- **Variantes y estados:** los mismos nombres y la misma cantidad en Figma (propiedades) y en código (props): default, hover, focus, disabled, error…
+- **Contenido:** el texto de ejemplo puede variar (Storybook usa casos reales); lo que debe coincidir es la estructura: qué partes tiene el componente y en qué orden.
+
+No se exige el píxel exacto, porque el navegador y Figma dibujan el texto de forma algo distinta (antialiasing, ±1px).
