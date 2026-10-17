@@ -1,4 +1,4 @@
-// url=https://www.figma.com/design/a1gmYfPaf761xDNLendLgY/Evergreen-DS?node-id=2-28
+// url=https://www.figma.com/design/T8Cwl1JJ0lrXnGeihwBcv4/Evergreen-Icons?node-id=2-52
 // source=node_modules/lucide-react
 // component=XIcon
 import figma from 'figma'
