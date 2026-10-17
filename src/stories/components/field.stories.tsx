@@ -53,7 +53,7 @@ export const Default: Story = {
   render: (args) => (
     <Field {...args}>
       <FieldLabel htmlFor="nombre">Nombre de la tienda</FieldLabel>
-      <Input id="nombre" placeholder="adidas Store Madrid" />
+      <Input id="nombre" placeholder="Tienda Centro Madrid" />
       <FieldDescription>Aparecerá en las facturas.</FieldDescription>
     </Field>
   ),

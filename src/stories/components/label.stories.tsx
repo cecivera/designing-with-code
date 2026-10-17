@@ -35,7 +35,7 @@ export const ConInput: Story = {
   render: (args) => (
     <div className="grid w-72 gap-2">
       <Label {...args} htmlFor="tienda" />
-      <Input id="tienda" placeholder="adidas Store Madrid" />
+      <Input id="tienda" placeholder="Tienda Centro Madrid" />
     </div>
   ),
 }
