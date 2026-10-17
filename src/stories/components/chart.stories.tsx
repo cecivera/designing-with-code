@@ -56,8 +56,8 @@ export const Barras: Story = {
         <XAxis dataKey="mes" tickLine={false} tickMargin={10} axisLine={false} tickFormatter={(v: string) => v.slice(0, 3)} />
         <ChartTooltip content={<ChartTooltipContent />} />
         <ChartLegend content={<ChartLegendContent />} />
-        <Bar dataKey="running" fill="var(--color-running)" radius={4} />
-        <Bar dataKey="futbol" fill="var(--color-futbol)" radius={4} />
+        <Bar dataKey="running" fill="var(--color-running)" radius={0} />
+        <Bar dataKey="futbol" fill="var(--color-futbol)" radius={0} />
       </BarChart>
     </ChartContainer>
   ),

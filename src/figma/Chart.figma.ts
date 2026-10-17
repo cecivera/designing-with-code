@@ -7,8 +7,8 @@ const instance = figma.selectedInstance
 export default {
   example: figma.code`<ChartContainer config={chartConfig}>
   <BarChart data={data}>
-    <Bar dataKey="escritorio" fill="var(--color-escritorio)" radius={4} />
-    <Bar dataKey="movil" fill="var(--color-movil)" radius={4} />
+    <Bar dataKey="escritorio" fill="var(--color-escritorio)" radius={0} />
+    <Bar dataKey="movil" fill="var(--color-movil)" radius={0} />
     <ChartTooltip content={<ChartTooltipContent />} />
   </BarChart>
 </ChartContainer>`,

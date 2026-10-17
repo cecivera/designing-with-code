@@ -20,17 +20,8 @@ a, button {
 
 /* ---- Sharp Corners ---- */
 
-/* Evergreen uses sharp corners as a brand choice.
-   Remove this section to restore default shadcn radius. */
-[data-slot="button"],
-[data-slot="card"],
-[data-slot="badge"],
-[data-slot="input"],
-[data-slot="textarea"],
-[data-slot="dialog"],
-[data-slot="sheet-content"] {
-  border-radius: 0 !important;
-}
+/* Las esquinas rectas ahora vienen del token --radius: 0 en globals.css,
+   así que afectan a todos los componentes y coinciden con Figma. */
 
 /* ---- Accent Color ---- */
 
