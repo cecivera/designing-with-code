@@ -25,7 +25,7 @@ npm run figma:publish   # las publica en Figma (necesita FIGMA_ACCESS_TOKEN)
 
 ## Estado
 
-Las plantillas están completas y validadas: `figma:check` lee las 235. **Todavía no están publicadas**, porque publicar Code Connect requiere un plan de Figma Organization o Enterprise. En un equipo con ese plan se activan con un solo comando, `npm run figma:publish`.
+Las plantillas están completas y validadas: `figma:check` lee las 237. **Todavía no están publicadas**, porque publicar Code Connect requiere un plan de Figma Organization o Enterprise. En un equipo con ese plan se activan con un solo comando, `npm run figma:publish`.
 
 Mientras tanto, la conexión Figma ↔ código funciona así:
 
