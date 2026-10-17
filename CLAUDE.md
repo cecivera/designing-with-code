@@ -137,3 +137,13 @@ Coinciden, variante por variante y estado por estado:
 - **Contenido:** el texto de ejemplo puede variar (Storybook usa casos reales); lo que debe coincidir es la estructura: qué partes tiene el componente y en qué orden.
 
 No se exige el píxel exacto, porque el navegador y Figma dibujan el texto de forma algo distinta (antialiasing, ±1px).
+
+## Impeccable: solo hallazgos
+
+Impeccable (`.claude/skills/impeccable/`) está para **pensar e ir más lejos**, no para cambiar el sistema.
+
+- Solo se usa cuando Cecilia escribe `/impeccable …`. Claude no lo carga por su cuenta (`disable-model-invocation: true`).
+- Comandos permitidos: `critique`, `audit`, `shape`, `document`, `clarify`, `harden`, `onboard` y `adapt`, **solo como informe de hallazgos**.
+- Prohibido: que Impeccable edite `src/components/`, `src/app/globals.css`, `src/app/evergreen-brand.css` o las historias. Tampoco se usan `bolder`, `quieter`, `colorize`, `delight`, `overdrive`, `polish`, `animate`, `typeset`, `layout`, `distill`, `optimize`, `extract`, `live` ni `generate` sobre componentes o tokens.
+- Si a Cecilia le vale una idea, se convierte en trabajo normal: primero el componente en Figma, después el código, en una rama y un PR con la tabla de paridad (ver arriba).
+
