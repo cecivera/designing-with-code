@@ -1,0 +1,11 @@
+// url=https://www.figma.com/design/T8Cwl1JJ0lrXnGeihwBcv4/Evergreen-Icons?node-id=8-348
+// source=node_modules/lucide-react
+// component=PrinterIcon
+import figma from 'figma'
+
+export default {
+  example: figma.code`<PrinterIcon />`,
+  imports: ['import { PrinterIcon } from "lucide-react"'],
+  id: 'icon-printer',
+  metadata: { nestable: true },
+}

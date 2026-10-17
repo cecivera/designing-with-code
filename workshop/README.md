@@ -24,7 +24,7 @@ Al terminar, cada PO sabrá:
 
 | Día | Tarea | Estado |
 |---|---|---|
-| Sáb 17 – Dom 18 | Terminar la librería: iconos, librerías de Figma y Product Card en código | En curso |
+| Sáb 17 – Dom 18 | Terminar la librería: iconos ✅ (178), librerías de Figma separadas ✅, Product Card en código | En curso |
 | Lun 19 | Guion detallado y ejercicios (`workshop/guion.md`, `workshop/ejercicios.md`) | Pendiente |
 | Mar 20 | Guía de una página para POs (`workshop/guia-pos.md`) y ajustes | Pendiente |
 | Mié 21 | Ensayo completo de los ejercicios con Claude Code en VS Code | Pendiente |
@@ -62,7 +62,7 @@ Al terminar, cada PO sabrá:
 ## Enlaces del proyecto
 
 - **Storybook publicado:** https://main--6ad355a31aa6572453b3566f.chromatic.com
-- **Figma:** Evergreen Foundations, Evergreen Icons y Evergreen DS (componentes), en el equipo *Designing with CODE*
+- **Figma** (equipo *Designing with CODE*): [Evergreen Foundations](https://www.figma.com/design/M63J2aWwAS4Ec1fjhl4QuU) · [Evergreen Icons](https://www.figma.com/design/T8Cwl1JJ0lrXnGeihwBcv4) · [Evergreen DS (componentes)](https://www.figma.com/design/a1gmYfPaf761xDNLendLgY/Evergreen-DS)
 - **Guías del repo:** [`SETUP-FIGMA.md`](../SETUP-FIGMA.md), [`CODE-CONNECT.md`](../CODE-CONNECT.md)
 
 ## Decisiones pendientes

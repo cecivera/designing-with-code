@@ -5,7 +5,7 @@ Cada componente del archivo de Figma **[Evergreen DS](https://www.figma.com/desi
 ## Qué hay
 
 - **57 plantillas de componente** en `src/figma/*.figma.ts`, una por cada componente de `src/components/ui/`.
-- **24 plantillas de iconos** en `src/figma/icons/`, que mapean cada icono de Figma a su import de `lucide-react`.
+- **178 plantillas de iconos** en `src/figma/icons/`, que mapean cada icono de la librería [Evergreen Icons](https://www.figma.com/design/T8Cwl1JJ0lrXnGeihwBcv4) a su import de `lucide-react`.
 - Cada plantilla lee las **propiedades del componente en Figma** (variantes, textos, booleanos, iconos intercambiables) y genera el JSX real con las props del código.
 
   Por ejemplo, el `Button` de Figma con `Variant=outline`, `Size=sm`, el icono visible y el texto "Guardar" genera:
@@ -25,7 +25,7 @@ npm run figma:publish   # las publica en Figma (necesita FIGMA_ACCESS_TOKEN)
 
 ## Estado
 
-Las plantillas están completas y validadas: `figma:check` lee las 81. **Todavía no están publicadas**, porque publicar Code Connect requiere un plan de Figma Organization o Enterprise. En un equipo con ese plan se activan con un solo comando, `npm run figma:publish`.
+Las plantillas están completas y validadas: `figma:check` lee las 235. **Todavía no están publicadas**, porque publicar Code Connect requiere un plan de Figma Organization o Enterprise. En un equipo con ese plan se activan con un solo comando, `npm run figma:publish`.
 
 Mientras tanto, la conexión Figma ↔ código funciona así:
 

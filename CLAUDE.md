@@ -102,7 +102,10 @@ When translating from Figma: extract tokens, map to the design system variables,
 - **Palette**: shadcn/ui neutral (see `src/app/globals.css` `:root`)
 - **Font**: Geist Sans (UI) + Geist Mono (code)
 - **Radius**: 0 everywhere — `--radius: 0rem` in `globals.css` drives every `rounded-*` token. Only `rounded-full` (avatars, switch, radio, slider thumb, progress) stays circular.
-- **Figma source of truth**: [Evergreen DS](https://www.figma.com/design/a1gmYfPaf761xDNLendLgY/Evergreen-DS) — one page per component; variables named like the CSS tokens.
+- **Figma source of truth** (three published libraries, team *Designing with CODE*):
+  - [Evergreen Foundations](https://www.figma.com/design/M63J2aWwAS4Ec1fjhl4QuU) — color, radius, spacing variables (named like the CSS tokens) and Geist text styles.
+  - [Evergreen Icons](https://www.figma.com/design/T8Cwl1JJ0lrXnGeihwBcv4) — 178 lucide-react icons by category, colored with Foundations.
+  - [Evergreen DS](https://www.figma.com/design/a1gmYfPaf761xDNLendLgY/Evergreen-DS) — components, one page per component, built only with Foundations + Icons.
 - **Storybook**: one story file per component in `src/stories/components/`, published to Chromatic on every push.
 - **Code Connect**: templates in `src/figma/` (see `CODE-CONNECT.md`).
 
