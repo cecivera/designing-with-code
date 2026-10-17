@@ -1,0 +1,63 @@
+import { Meta } from "@storybook/addon-docs/blocks"
+
+<Meta title="Introducción" />
+
+# Evergreen · sistema de componentes
+
+Este Storybook es el **catálogo vivo** de los componentes del proyecto. Cada componente que ves aquí es exactamente el
+mismo código que usa la app: no son capturas ni maquetas.
+
+## ¿De dónde salen los componentes?
+
+Evergreen no tiene un sistema de diseño propio: usa **[shadcn/ui](https://ui.shadcn.com)** (estilo *base-nova*, construido sobre
+**Base UI**) + **Tailwind CSS v4**. shadcn no es una librería que se instala: copia el código de cada componente en el repo, así que
+es nuestro y lo podemos modificar.
+
+| Qué | Dónde |
+|---|---|
+| Componentes | `src/components/ui/*.tsx` (un archivo por componente) |
+| Tokens (colores, radio, fuentes) | `src/app/globals.css` (`:root` = modo claro) |
+| Capa de marca Evergreen | `src/app/evergreen-brand.css` |
+| Historias de Storybook | `src/stories/components/*.stories.tsx` |
+| Esta documentación | `src/stories/docs/*.mdx` |
+
+## Cómo leer cada componente
+
+En la barra lateral los componentes están agrupados por función:
+
+- **Acciones** — botones y toggles.
+- **Formularios** — campos, selectores, checkbox, calendario…
+- **Navegación** — tabs, menús, breadcrumb, sidebar…
+- **Datos** — tablas, badges, avatares, gráficos…
+- **Feedback** — alertas, progreso, carga, notificaciones, estados vacíos.
+- **Overlays** — todo lo que se abre encima: dialog, sheet, popover, tooltip…
+- **Layout** — tarjetas, separadores, acordeón, paneles…
+
+Cada componente tiene una página **Docs** con: qué es, cuándo usarlo, el **archivo** de código al que corresponde, una tabla de props con
+**controles** (cambia variantes y tamaños en vivo) y varias historias con sus estados (deshabilitado, con icono, error…).
+Pulsa **Show code** debajo de cualquier ejemplo para ver el JSX.
+
+## Conexión con Figma
+
+El objetivo es que diseño y código hablen el mismo idioma:
+
+1. **Tokens ↔ variables.** Las variables de Figma (colores, radio) deben llamarse igual que las de `globals.css`
+   (`primary`, `muted-foreground`, `border`…). Mira la página **Fundamentos** para ver la lista completa.
+   Con la skill **`/ev-figma variables`** Claude compara las variables de tu archivo de Figma con `globals.css` y te enseña las diferencias.
+2. **Diseños → código.** Con **`/ev-figma inspect <url>`** y **`/ev-figma build <url>`** Claude lee un frame de Figma (vía Figma MCP)
+   y lo construye usando estos mismos componentes y tokens.
+3. **Componentes ↔ componentes (Code Connect).** Cada página de Docs indica el archivo exacto (por ejemplo
+   `src/components/ui/button.tsx`). Ese es el archivo que se enlaza con el componente de Figma mediante **Code Connect**
+   (**`/ev-figma sync`**), para que en Dev Mode aparezca el código real en lugar de CSS genérico.
+
+Guía paso a paso: `SETUP-FIGMA.md` en la raíz del repo.
+
+## Cómo arrancarlo
+
+```bash
+npm install
+npm run storybook        # abre http://localhost:6006
+npm run build-storybook  # genera la versión estática en storybook-static/
+```
+
+> Storybook está configurado **solo en modo claro**. La app (Next.js) sigue usando su propio tema; Storybook no lo modifica.
