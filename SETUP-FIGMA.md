@@ -112,3 +112,19 @@ Detalles:
 - Configuración en `.storybook/`; historias en `src/stories/components/*.stories.tsx`; páginas de documentación en `src/stories/docs/*.mdx`.
 - Para publicarlo como web estática: `npm run build-storybook` genera la carpeta `storybook-static/` (ignorada por git), que puedes subir a Vercel, Netlify o GitHub Pages.
 - Si añades un componente nuevo con `npx shadcn@latest add <nombre>`, crea también su `<nombre>.stories.tsx` copiando la estructura de uno existente.
+
+## 8. Publicar el Storybook en Chromatic
+
+Cada push a GitHub publica el Storybook en Chromatic con la Action `.github/workflows/chromatic.yml`.
+
+1. En Chromatic: **Manage → Configure**, copia el project token (`chpt_…`).
+2. En GitHub: **Settings → Secrets and variables → Actions → New repository secret**, con nombre `CHROMATIC_PROJECT_TOKEN` y el token como valor.
+3. Haz push. El enlace al Storybook publicado aparece en el resultado de la Action y en tu proyecto de Chromatic.
+
+No guardes nunca el token en el código: el repo es público.
+
+Para publicar a mano desde tu ordenador:
+
+```bash
+CHROMATIC_PROJECT_TOKEN=chpt_… npm run chromatic
+```
