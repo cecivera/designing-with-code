@@ -10,18 +10,18 @@ import {
 } from "@/components/ui/carousel"
 
 const meta = {
-  title: "Datos/Carousel",
+  title: "Data/Carousel",
   component: Carousel,
   tags: ["autodocs"],
   parameters: {
     docs: {
       description: {
         component: `
-**Qué es:** carrusel deslizable de elementos (basado en Embla), con botones anterior/siguiente y soporte táctil.
+**What it is:** a swipeable carousel of items (built on Embla), with previous/next buttons and touch support.
 
-**Cuándo usarlo:** galerías de producto o destacados donde no es imprescindible ver todo a la vez. Evítalo para contenido crítico: mucha gente no pasa del primer slide.
+**When to use it:** product galleries or highlights where seeing everything at once isn't essential. Avoid it for critical content: many people never get past the first slide.
 
-**Archivo:** \`src/components/ui/carousel.tsx\` → \`Carousel\` (props \`orientation\`, \`opts\`), \`CarouselContent\`, \`CarouselItem\`, \`CarouselPrevious\`, \`CarouselNext\`.
+**File:** \`src/components/ui/carousel.tsx\` → \`Carousel\` (props \`orientation\`, \`opts\`), \`CarouselContent\`, \`CarouselItem\`, \`CarouselPrevious\`, \`CarouselNext\`.
 `,
       },
     },
@@ -55,8 +55,8 @@ export const Default: Story = {
   ),
 }
 
-export const VariosPorVista: Story = {
-  name: "Varios por vista",
+export const MultiplePerView: Story = {
+  name: "Multiple per view",
   render: (args) => (
     <Carousel {...args} opts={{ align: "start" }} className="w-full max-w-sm">
       <CarouselContent>

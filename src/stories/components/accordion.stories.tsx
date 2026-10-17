@@ -15,20 +15,20 @@ const meta = {
     docs: {
       description: {
         component: `
-**Qué es:** lista de secciones que se expanden y contraen para mostrar su contenido.
+**What it is:** a list of sections that expand and collapse to show their content.
 
-**Cuándo usarlo:** FAQs, ajustes agrupados o fichas técnicas largas, cuando el usuario solo necesita ver parte del contenido. Para un único bloque desplegable usa **Collapsible**.
+**When to use it:** FAQs, grouped settings or long spec sheets, when the user only needs to see part of the content. For a single expandable block use **Collapsible**.
 
-**Archivo:** \`src/components/ui/accordion.tsx\` → \`Accordion\` (props \`multiple\`, \`defaultValue\`), \`AccordionItem\`, \`AccordionTrigger\`, \`AccordionContent\`.
+**File:** \`src/components/ui/accordion.tsx\` → \`Accordion\` (props \`multiple\`, \`defaultValue\`), \`AccordionItem\`, \`AccordionTrigger\`, \`AccordionContent\`.
 `,
       },
     },
   },
   argTypes: {
-    multiple: { control: "boolean", description: "Permite tener varias secciones abiertas a la vez." },
+    multiple: { control: "boolean", description: "Allows several sections to be open at once." },
     disabled: { control: "boolean" },
   },
-  args: { multiple: false, defaultValue: ["envios"] },
+  args: { multiple: false, defaultValue: ["shipping"] },
   decorators: [(Story) => <div className="w-96"><Story /></div>],
 } satisfies Meta<typeof Accordion>
 
@@ -36,9 +36,9 @@ export default meta
 type Story = StoryObj<typeof meta>
 
 const faqs = [
-  { value: "envios", q: "¿Cuánto tarda el envío?", a: "Entre 3 y 5 días laborables en península." },
-  { value: "devoluciones", q: "¿Puedo devolver un pedido?", a: "Sí, dispones de 30 días desde la entrega." },
-  { value: "factura", q: "¿Dónde descargo la factura?", a: "En Pedidos › Detalle › Descargar factura." },
+  { value: "shipping", q: "How long does shipping take?", a: "3 to 5 business days within the mainland." },
+  { value: "returns", q: "Can I return an order?", a: "Yes, you have 30 days from delivery." },
+  { value: "invoice", q: "Where do I download the invoice?", a: "In Orders › Details › Download invoice." },
 ]
 
 export const Default: Story = {
@@ -55,13 +55,13 @@ export const Default: Story = {
 }
 
 export const Multiple: Story = {
-  name: "Varias abiertas",
-  args: { multiple: true, defaultValue: ["envios", "factura"] },
+  name: "Multiple open",
+  args: { multiple: true, defaultValue: ["shipping", "invoice"] },
   render: Default.render,
 }
 
-export const ItemDeshabilitado: Story = {
-  name: "Con item deshabilitado",
+export const DisabledItem: Story = {
+  name: "With disabled item",
   render: (args) => (
     <Accordion {...args}>
       {faqs.map((f, i) => (

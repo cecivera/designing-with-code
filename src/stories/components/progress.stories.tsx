@@ -10,11 +10,11 @@ const meta = {
     docs: {
       description: {
         component: `
-**Qué es:** barra que muestra el avance de una tarea.
+**What it is:** a bar that shows a task's progress.
 
-**Cuándo usarlo:** cuando conoces el porcentaje (subida de archivos, pasos completados). Si no sabes cuánto falta, usa **Spinner**; mientras carga contenido, **Skeleton**.
+**When to use it:** when you know the percentage (file uploads, completed steps). If you don't know how much is left, use **Spinner**; while content loads, **Skeleton**.
 
-**Archivo:** \`src/components/ui/progress.tsx\` → \`Progress\` (prop \`value\` 0–100 o \`null\` para indeterminado), \`ProgressLabel\`, \`ProgressValue\`, \`ProgressTrack\`, \`ProgressIndicator\`.
+**File:** \`src/components/ui/progress.tsx\` → \`Progress\` (prop \`value\` 0–100 or \`null\` for indeterminate), \`ProgressLabel\`, \`ProgressValue\`, \`ProgressTrack\`, \`ProgressIndicator\`.
 `,
       },
     },
@@ -31,18 +31,18 @@ type Story = StoryObj<typeof meta>
 
 export const Default: Story = {}
 
-export const ConEtiqueta: Story = {
-  name: "Con etiqueta y valor",
+export const WithLabel: Story = {
+  name: "With label and value",
   render: (args) => (
     <Progress {...args}>
       <div className="flex w-full items-center justify-between">
-        <ProgressLabel>Subiendo catálogo</ProgressLabel>
+        <ProgressLabel>Uploading catalog</ProgressLabel>
         <ProgressValue />
       </div>
     </Progress>
   ),
 }
 
-export const Vacio: Story = { name: "Vacío (0%)", args: { value: 0 } }
+export const Empty: Story = { name: "Empty (0%)", args: { value: 0 } }
 
-export const Completo: Story = { args: { value: 100 } }
+export const Complete: Story = { name: "Complete", args: { value: 100 } }

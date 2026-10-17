@@ -12,11 +12,11 @@ const meta = {
     docs: {
       description: {
         component: `
-**Qué es:** zona con scroll propio y barras de desplazamiento con el estilo del sistema (iguales en todos los navegadores).
+**What it is:** an area with its own scrolling and system-styled scrollbars (consistent across browsers).
 
-**Cuándo usarlo:** listas largas dentro de un panel, menú o tarjeta de altura fija. Para la página completa usa el scroll nativo.
+**When to use it:** long lists inside a fixed-height panel, menu or card. For the whole page use native scrolling.
 
-**Archivo:** \`src/components/ui/scroll-area.tsx\` → \`ScrollArea\`, \`ScrollBar\` (prop \`orientation\`).
+**File:** \`src/components/ui/scroll-area.tsx\` → \`ScrollArea\`, \`ScrollBar\` (prop \`orientation\`).
 `,
       },
     },
@@ -32,7 +32,7 @@ export const Vertical: Story = {
   render: (args) => (
     <ScrollArea {...args} className="h-72 w-48 rounded-md border">
       <div className="p-4">
-        <h4 className="mb-4 text-sm leading-none font-medium">Referencias</h4>
+        <h4 className="mb-4 text-sm leading-none font-medium">SKUs</h4>
         {tags.map((tag) => (
           <React.Fragment key={tag}>
             <div className="text-sm">{tag}</div>
@@ -50,7 +50,7 @@ export const Horizontal: Story = {
       <div className="flex w-max gap-4 p-4">
         {Array.from({ length: 10 }).map((_, i) => (
           <div key={i} className="flex h-32 w-40 shrink-0 items-center justify-center rounded-md bg-muted text-sm">
-            Producto {i + 1}
+            Product {i + 1}
           </div>
         ))}
       </div>

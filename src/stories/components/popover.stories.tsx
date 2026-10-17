@@ -20,11 +20,11 @@ const meta = {
     docs: {
       description: {
         component: `
-**Qué es:** pequeño panel flotante anclado a un elemento, que se abre al hacer clic.
+**What it is:** a small floating panel anchored to an element that opens on click.
 
-**Cuándo usarlo:** para contenido interactivo breve junto a su disparador (un mini formulario, un selector de fecha con **Calendar**, filtros rápidos). Si solo es texto informativo al pasar el ratón, usa **Tooltip** o **HoverCard**.
+**When to use it:** for short interactive content next to its trigger (a mini form, a date picker with **Calendar**, quick filters). If it's just informational text on hover, use **Tooltip** or **HoverCard**.
 
-**Archivo:** \`src/components/ui/popover.tsx\` → \`Popover\`, \`PopoverTrigger\`, \`PopoverContent\` (props \`side\`, \`align\`, \`sideOffset\`), \`PopoverHeader\`, \`PopoverTitle\`, \`PopoverDescription\`.
+**File:** \`src/components/ui/popover.tsx\` → \`Popover\`, \`PopoverTrigger\`, \`PopoverContent\` (props \`side\`, \`align\`, \`sideOffset\`), \`PopoverHeader\`, \`PopoverTitle\`, \`PopoverDescription\`.
 `,
       },
     },
@@ -43,20 +43,20 @@ type Story = StoryObj<typeof meta>
 export const Default: Story = {
   render: (args) => (
     <Popover>
-      <PopoverTrigger render={<Button variant="outline" />}>Dimensiones</PopoverTrigger>
+      <PopoverTrigger render={<Button variant="outline" />}>Dimensions</PopoverTrigger>
       <PopoverContent {...args} className="w-72">
         <PopoverHeader>
-          <PopoverTitle>Dimensiones</PopoverTitle>
-          <PopoverDescription>Tamaño de la caja de envío.</PopoverDescription>
+          <PopoverTitle>Dimensions</PopoverTitle>
+          <PopoverDescription>Shipping box size.</PopoverDescription>
         </PopoverHeader>
         <div className="grid gap-2">
           <div className="grid grid-cols-3 items-center gap-2">
-            <Label htmlFor="ancho">Ancho</Label>
-            <Input id="ancho" defaultValue="40 cm" className="col-span-2" />
+            <Label htmlFor="width">Width</Label>
+            <Input id="width" defaultValue="40 cm" className="col-span-2" />
           </div>
           <div className="grid grid-cols-3 items-center gap-2">
-            <Label htmlFor="alto">Alto</Label>
-            <Input id="alto" defaultValue="25 cm" className="col-span-2" />
+            <Label htmlFor="height">Height</Label>
+            <Input id="height" defaultValue="25 cm" className="col-span-2" />
           </div>
         </div>
       </PopoverContent>
@@ -64,14 +64,15 @@ export const Default: Story = {
   ),
 }
 
-export const Lados: Story = {
+export const Sides: Story = {
+  name: "Sides",
   render: () => (
     <div className="flex flex-wrap gap-2">
       {(["top", "right", "bottom", "left"] as const).map((side) => (
         <Popover key={side}>
           <PopoverTrigger render={<Button variant="outline" />}>{side}</PopoverTrigger>
           <PopoverContent side={side} className="w-40">
-            Popover en {side}
+            Popover on {side}
           </PopoverContent>
         </Popover>
       ))}

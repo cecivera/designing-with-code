@@ -1,6 +1,6 @@
 import { create } from "storybook/theming"
 
-// Tema claro de la interfaz de Storybook (barra lateral, toolbar y docs).
+// Light theme for the Storybook UI (sidebar, toolbar and docs).
 export default create({
   base: "light",
   brandTitle: "Evergreen · shadcn/ui",

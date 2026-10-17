@@ -18,18 +18,18 @@ import {
 } from "@/components/ui/context-menu"
 
 const meta = {
-  title: "Navegación/ContextMenu",
+  title: "Navigation/ContextMenu",
   component: ContextMenu,
   tags: ["autodocs"],
   parameters: {
     docs: {
       description: {
         component: `
-**Qué es:** menú que aparece con clic derecho (o pulsación larga) sobre un área.
+**What it is:** a menu that appears on right-click (or long press) over an area.
 
-**Cuándo usarlo:** como atajo para usuarios avanzados (lienzos, tablas, archivos). Nunca como única vía para una acción: ofrece también un botón visible o un **DropdownMenu**.
+**When to use it:** as a shortcut for power users (canvases, tables, files). Never as the only way to perform an action: also provide a visible button or a **DropdownMenu**.
 
-**Archivo:** \`src/components/ui/context-menu.tsx\` → \`ContextMenu\`, \`ContextMenuTrigger\`, \`ContextMenuContent\`, \`ContextMenuItem\` (props \`variant\`, \`inset\`), \`ContextMenuCheckboxItem\`, \`ContextMenuRadioItem\`, \`ContextMenuSub\`…
+**File:** \`src/components/ui/context-menu.tsx\` → \`ContextMenu\`, \`ContextMenuTrigger\`, \`ContextMenuContent\`, \`ContextMenuItem\` (props \`variant\`, \`inset\`), \`ContextMenuCheckboxItem\`, \`ContextMenuRadioItem\`, \`ContextMenuSub\`…
 `,
       },
     },
@@ -43,39 +43,39 @@ export const Default: Story = {
   render: (args) => (
     <ContextMenu {...args}>
       <ContextMenuTrigger className="flex h-40 w-72 items-center justify-center rounded-lg border border-dashed text-sm text-muted-foreground">
-        Haz clic derecho aquí
+        Right-click here
       </ContextMenuTrigger>
       <ContextMenuContent className="w-56">
         <ContextMenuGroup>
           <ContextMenuItem>
-            Atrás <ContextMenuShortcut>⌘[</ContextMenuShortcut>
+            Back <ContextMenuShortcut>⌘[</ContextMenuShortcut>
           </ContextMenuItem>
           <ContextMenuItem disabled>
-            Adelante <ContextMenuShortcut>⌘]</ContextMenuShortcut>
+            Forward <ContextMenuShortcut>⌘]</ContextMenuShortcut>
           </ContextMenuItem>
           <ContextMenuItem>
-            Recargar <ContextMenuShortcut>⌘R</ContextMenuShortcut>
+            Reload <ContextMenuShortcut>⌘R</ContextMenuShortcut>
           </ContextMenuItem>
           <ContextMenuSub>
-            <ContextMenuSubTrigger>Más herramientas</ContextMenuSubTrigger>
+            <ContextMenuSubTrigger>More tools</ContextMenuSubTrigger>
             <ContextMenuSubContent>
-              <ContextMenuItem>Guardar como…</ContextMenuItem>
-              <ContextMenuItem>Crear acceso directo</ContextMenuItem>
+              <ContextMenuItem>Save as…</ContextMenuItem>
+              <ContextMenuItem>Create shortcut</ContextMenuItem>
             </ContextMenuSubContent>
           </ContextMenuSub>
         </ContextMenuGroup>
         <ContextMenuSeparator />
-        <ContextMenuCheckboxItem defaultChecked>Mostrar marcadores</ContextMenuCheckboxItem>
+        <ContextMenuCheckboxItem defaultChecked>Show bookmarks</ContextMenuCheckboxItem>
         <ContextMenuSeparator />
         <ContextMenuGroup>
-          <ContextMenuLabel inset>Persona</ContextMenuLabel>
+          <ContextMenuLabel inset>Person</ContextMenuLabel>
           <ContextMenuRadioGroup defaultValue="cecilia">
             <ContextMenuRadioItem value="cecilia">Cecilia</ContextMenuRadioItem>
-            <ContextMenuRadioItem value="equipo">Equipo</ContextMenuRadioItem>
+            <ContextMenuRadioItem value="team">Team</ContextMenuRadioItem>
           </ContextMenuRadioGroup>
         </ContextMenuGroup>
         <ContextMenuSeparator />
-        <ContextMenuItem variant="destructive">Eliminar</ContextMenuItem>
+        <ContextMenuItem variant="destructive">Delete</ContextMenuItem>
       </ContextMenuContent>
     </ContextMenu>
   ),

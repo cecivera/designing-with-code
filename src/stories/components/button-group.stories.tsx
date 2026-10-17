@@ -16,18 +16,18 @@ import {
 import { Input } from "@/components/ui/input"
 
 const meta = {
-  title: "Acciones/ButtonGroup",
+  title: "Actions/ButtonGroup",
   component: ButtonGroup,
   tags: ["autodocs"],
   parameters: {
     docs: {
       description: {
         component: `
-**Qué es:** agrupa varios botones relacionados en un solo bloque visual (bordes unidos).
+**What it is:** groups several related buttons into a single visual block (joined borders).
 
-**Cuándo usarlo:** para acciones hermanas (Archivar / Posponer / Más), botones partidos ("split button") o un input con botón pegado. Si las opciones son excluyentes y tienen estado (on/off), usa **ToggleGroup**.
+**When to use it:** for sibling actions (Archive / Snooze / More), split buttons or an input with an attached button. If the options are mutually exclusive and have state (on/off), use **ToggleGroup**.
 
-**Archivo:** \`src/components/ui/button-group.tsx\` → \`ButtonGroup\`, \`ButtonGroupSeparator\`, \`ButtonGroupText\` (prop \`orientation\`).
+**File:** \`src/components/ui/button-group.tsx\` → \`ButtonGroup\`, \`ButtonGroupSeparator\`, \`ButtonGroupText\` (prop \`orientation\`).
 `,
       },
     },
@@ -36,7 +36,7 @@ const meta = {
     orientation: {
       control: "inline-radio",
       options: ["horizontal", "vertical"],
-      description: "Dirección del grupo.",
+      description: "Direction of the group.",
       table: { defaultValue: { summary: "horizontal" } },
     },
   },
@@ -49,9 +49,9 @@ type Story = StoryObj<typeof meta>
 export const Default: Story = {
   render: (args) => (
     <ButtonGroup {...args}>
-      <Button variant="outline">Archivar</Button>
-      <Button variant="outline">Posponer</Button>
-      <Button variant="outline">Más</Button>
+      <Button variant="outline">Archive</Button>
+      <Button variant="outline">Snooze</Button>
+      <Button variant="outline">More</Button>
     </ButtonGroup>
   ),
 }
@@ -61,45 +61,45 @@ export const Vertical: Story = {
   render: Default.render,
 }
 
-export const ConIconos: Story = {
-  name: "Con iconos",
+export const WithIcons: Story = {
+  name: "With icons",
   render: (args) => (
     <ButtonGroup {...args}>
-      <Button variant="outline" size="icon" aria-label="Volver">
+      <Button variant="outline" size="icon" aria-label="Back">
         <ArrowLeftIcon />
       </Button>
       <Button variant="outline">
         <ArchiveIcon data-icon="inline-start" />
-        Archivar
+        Archive
       </Button>
       <Button variant="outline">
         <ClockIcon data-icon="inline-start" />
-        Posponer
+        Snooze
       </Button>
     </ButtonGroup>
   ),
 }
 
-export const BotonPartido: Story = {
-  name: "Botón partido (split)",
+export const SplitButton: Story = {
+  name: "Split button",
   render: (args) => (
     <ButtonGroup {...args}>
-      <Button>Publicar</Button>
+      <Button>Publish</Button>
       <ButtonGroupSeparator />
-      <Button size="icon" aria-label="Más opciones">
+      <Button size="icon" aria-label="More options">
         <ChevronDownIcon />
       </Button>
     </ButtonGroup>
   ),
 }
 
-export const ConInputYTexto: Story = {
-  name: "Con input y texto",
+export const WithInputAndText: Story = {
+  name: "With input and text",
   render: (args) => (
     <ButtonGroup {...args}>
       <ButtonGroupText>https://</ButtonGroupText>
-      <Input placeholder="mi-tienda.com" className="w-48" />
-      <Button variant="outline" size="icon" aria-label="Buscar">
+      <Input placeholder="my-store.com" className="w-48" />
+      <Button variant="outline" size="icon" aria-label="Search">
         <SearchIcon />
       </Button>
     </ButtonGroup>

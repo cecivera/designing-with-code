@@ -5,19 +5,19 @@ import { fn } from "storybook/test"
 import { Button } from "@/components/ui/button"
 
 const meta = {
-  title: "Acciones/Button",
+  title: "Actions/Button",
   component: Button,
   tags: ["autodocs"],
   parameters: {
     docs: {
       description: {
         component: `
-**Qué es:** el botón principal del sistema. Dispara una acción (enviar, guardar, abrir un diálogo).
+**What it is:** the system's main button. It triggers an action (submit, save, open a dialog).
 
-**Cuándo usarlo:** para acciones. Si el elemento lleva a otra página, usa un enlace (puedes darle aspecto de botón con \`render={<a href="…" />}\` o la variante \`link\`).
-Usa una sola variante \`default\` por vista para la acción principal; \`outline\`/\`secondary\`/\`ghost\` para acciones secundarias y \`destructive\` para acciones irreversibles.
+**When to use it:** for actions. If the element takes the user to another page, use a link (you can give it a button look with \`render={<a href="…" />}\` or the \`link\` variant).
+Use a single \`default\` variant per view for the primary action; \`outline\`/\`secondary\`/\`ghost\` for secondary actions and \`destructive\` for irreversible actions.
 
-**Archivo:** \`src/components/ui/button.tsx\` → componente \`Button\` (props \`variant\` y \`size\`). Es el archivo a mapear en Figma Code Connect.
+**File:** \`src/components/ui/button.tsx\` → \`Button\` component (props \`variant\` and \`size\`). This is the file to map in Figma Code Connect.
 `,
       },
     },
@@ -26,20 +26,20 @@ Usa una sola variante \`default\` por vista para la acción principal; \`outline
     variant: {
       control: "select",
       options: ["default", "outline", "secondary", "ghost", "destructive", "link"],
-      description: "Estilo visual del botón.",
+      description: "Visual style of the button.",
       table: { defaultValue: { summary: "default" } },
     },
     size: {
       control: "select",
       options: ["default", "xs", "sm", "lg", "icon", "icon-xs", "icon-sm", "icon-lg"],
-      description: "Tamaño. Los tamaños `icon*` son cuadrados, para botones solo con icono.",
+      description: "Size. The `icon*` sizes are square, for icon-only buttons.",
       table: { defaultValue: { summary: "default" } },
     },
-    disabled: { control: "boolean", description: "Desactiva el botón." },
-    children: { control: "text", description: "Contenido (texto y/o icono)." },
+    disabled: { control: "boolean", description: "Disables the button." },
+    children: { control: "text", description: "Content (text and/or icon)." },
   },
   args: {
-    children: "Botón",
+    children: "Button",
     variant: "default",
     size: "default",
     disabled: false,
@@ -55,11 +55,11 @@ export const Default: Story = {}
 export const Outline: Story = { args: { variant: "outline" } }
 export const Secondary: Story = { args: { variant: "secondary" } }
 export const Ghost: Story = { args: { variant: "ghost" } }
-export const Destructive: Story = { args: { variant: "destructive", children: "Eliminar" } }
-export const Link: Story = { args: { variant: "link", children: "Ver más" } }
+export const Destructive: Story = { args: { variant: "destructive", children: "Delete" } }
+export const Link: Story = { args: { variant: "link", children: "See more" } }
 
-export const TodasLasVariantes: Story = {
-  name: "Todas las variantes",
+export const AllVariants: Story = {
+  name: "All variants",
   render: (args) => (
     <div className="flex flex-wrap items-center gap-2">
       <Button {...args} variant="default">Default</Button>
@@ -72,8 +72,8 @@ export const TodasLasVariantes: Story = {
   ),
 }
 
-export const Tamanos: Story = {
-  name: "Tamaños",
+export const Sizes: Story = {
+  name: "Sizes",
   render: (args) => (
     <div className="flex flex-wrap items-center gap-2">
       <Button {...args} size="xs">Extra small</Button>
@@ -84,42 +84,43 @@ export const Tamanos: Story = {
   ),
 }
 
-export const ConIcono: Story = {
-  name: "Con icono",
+export const WithIcon: Story = {
+  name: "With icon",
   render: (args) => (
     <div className="flex flex-wrap items-center gap-2">
       <Button {...args}>
         <MailIcon data-icon="inline-start" />
-        Enviar correo
+        Send email
       </Button>
       <Button {...args} variant="outline">
-        Continuar
+        Continue
         <ArrowRightIcon data-icon="inline-end" />
       </Button>
     </div>
   ),
 }
 
-export const SoloIcono: Story = {
-  name: "Solo icono",
+export const IconOnly: Story = {
+  name: "Icon only",
   render: (args) => (
     <div className="flex flex-wrap items-center gap-2">
-      <Button {...args} size="icon-xs" aria-label="Añadir"><PlusIcon /></Button>
-      <Button {...args} size="icon-sm" aria-label="Añadir"><PlusIcon /></Button>
-      <Button {...args} size="icon" aria-label="Añadir"><PlusIcon /></Button>
-      <Button {...args} size="icon-lg" aria-label="Añadir"><PlusIcon /></Button>
+      <Button {...args} size="icon-xs" aria-label="Add"><PlusIcon /></Button>
+      <Button {...args} size="icon-sm" aria-label="Add"><PlusIcon /></Button>
+      <Button {...args} size="icon" aria-label="Add"><PlusIcon /></Button>
+      <Button {...args} size="icon-lg" aria-label="Add"><PlusIcon /></Button>
     </div>
   ),
 }
 
-export const Cargando: Story = {
+export const Loading: Story = {
+  name: "Loading",
   args: { disabled: true },
   render: (args) => (
     <Button {...args}>
       <Loader2Icon className="animate-spin" data-icon="inline-start" />
-      Guardando…
+      Saving…
     </Button>
   ),
 }
 
-export const Deshabilitado: Story = { args: { disabled: true } }
+export const Disabled: Story = { name: "Disabled", args: { disabled: true } }

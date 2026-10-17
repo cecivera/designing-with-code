@@ -11,18 +11,18 @@ import {
 import { ToggleGroup, ToggleGroupItem } from "@/components/ui/toggle-group"
 
 const meta = {
-  title: "Acciones/ToggleGroup",
+  title: "Actions/ToggleGroup",
   component: ToggleGroup,
   tags: ["autodocs"],
   parameters: {
     docs: {
       description: {
         component: `
-**Qué es:** un conjunto de Toggles que funcionan juntos. Puede permitir una sola opción (alineación) o varias (negrita + cursiva).
+**What it is:** a set of Toggles that work together. It can allow a single option (alignment) or several (bold + italic).
 
-**Cuándo usarlo:** para cambiar entre vistas o formatos con pocas opciones visibles a la vez. Con muchas opciones, usa **Select**; para navegar entre secciones, **Tabs**.
+**When to use it:** to switch between views or formats with a few options visible at once. With many options, use **Select**; to navigate between sections, **Tabs**.
 
-**Archivo:** \`src/components/ui/toggle-group.tsx\` → \`ToggleGroup\`, \`ToggleGroupItem\` (props \`variant\`, \`size\`, \`spacing\`, \`orientation\`, \`multiple\`).
+**File:** \`src/components/ui/toggle-group.tsx\` → \`ToggleGroup\`, \`ToggleGroupItem\` (props \`variant\`, \`size\`, \`spacing\`, \`orientation\`, \`multiple\`).
 `,
       },
     },
@@ -32,11 +32,11 @@ const meta = {
     size: { control: "inline-radio", options: ["sm", "default", "lg"] },
     spacing: {
       control: { type: "number", min: 0, max: 4 },
-      description: "Separación entre items. `0` los une en un bloque.",
+      description: "Spacing between items. `0` joins them into a single block.",
       table: { defaultValue: { summary: "2" } },
     },
     orientation: { control: "inline-radio", options: ["horizontal", "vertical"] },
-    multiple: { control: "boolean", description: "Permite activar varias opciones." },
+    multiple: { control: "boolean", description: "Allows multiple options to be active." },
     disabled: { control: "boolean" },
   },
   args: { variant: "outline", size: "default", spacing: 2, orientation: "horizontal" },
@@ -45,48 +45,49 @@ const meta = {
 export default meta
 type Story = StoryObj<typeof meta>
 
-export const SeleccionUnica: Story = {
-  name: "Selección única",
+export const SingleSelection: Story = {
+  name: "Single selection",
   args: { defaultValue: ["left"] },
   render: (args) => (
     <ToggleGroup {...args}>
-      <ToggleGroupItem value="left" aria-label="Alinear a la izquierda"><AlignLeftIcon /></ToggleGroupItem>
-      <ToggleGroupItem value="center" aria-label="Centrar"><AlignCenterIcon /></ToggleGroupItem>
-      <ToggleGroupItem value="right" aria-label="Alinear a la derecha"><AlignRightIcon /></ToggleGroupItem>
+      <ToggleGroupItem value="left" aria-label="Align left"><AlignLeftIcon /></ToggleGroupItem>
+      <ToggleGroupItem value="center" aria-label="Align center"><AlignCenterIcon /></ToggleGroupItem>
+      <ToggleGroupItem value="right" aria-label="Align right"><AlignRightIcon /></ToggleGroupItem>
     </ToggleGroup>
   ),
 }
 
 export const Multiple: Story = {
-  name: "Selección múltiple",
+  name: "Multiple selection",
   args: { multiple: true, defaultValue: ["bold", "italic"] },
   render: (args) => (
     <ToggleGroup {...args}>
-      <ToggleGroupItem value="bold" aria-label="Negrita"><BoldIcon /></ToggleGroupItem>
-      <ToggleGroupItem value="italic" aria-label="Cursiva"><ItalicIcon /></ToggleGroupItem>
-      <ToggleGroupItem value="underline" aria-label="Subrayado"><UnderlineIcon /></ToggleGroupItem>
+      <ToggleGroupItem value="bold" aria-label="Bold"><BoldIcon /></ToggleGroupItem>
+      <ToggleGroupItem value="italic" aria-label="Italic"><ItalicIcon /></ToggleGroupItem>
+      <ToggleGroupItem value="underline" aria-label="Underline"><UnderlineIcon /></ToggleGroupItem>
     </ToggleGroup>
   ),
 }
 
-export const Unidos: Story = {
-  name: "Unidos (spacing 0)",
-  args: { spacing: 0, defaultValue: ["semana"] },
+export const Attached: Story = {
+  name: "Joined (spacing 0)",
+  args: { spacing: 0, defaultValue: ["week"] },
   render: (args) => (
     <ToggleGroup {...args}>
-      <ToggleGroupItem value="dia">Día</ToggleGroupItem>
-      <ToggleGroupItem value="semana">Semana</ToggleGroupItem>
-      <ToggleGroupItem value="mes">Mes</ToggleGroupItem>
+      <ToggleGroupItem value="day">Day</ToggleGroupItem>
+      <ToggleGroupItem value="week">Week</ToggleGroupItem>
+      <ToggleGroupItem value="month">Month</ToggleGroupItem>
     </ToggleGroup>
   ),
 }
 
 export const Vertical: Story = {
   args: { orientation: "vertical", defaultValue: ["center"] },
-  render: SeleccionUnica.render,
+  render: SingleSelection.render,
 }
 
-export const Deshabilitado: Story = {
+export const Disabled: Story = {
+  name: "Disabled",
   args: { disabled: true, defaultValue: ["left"] },
-  render: SeleccionUnica.render,
+  render: SingleSelection.render,
 }

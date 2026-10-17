@@ -1,8 +1,8 @@
 /*
- * Estilos solo para Storybook.
- * - Carga Geist desde el paquete `geist` (en la app lo hace next/font).
- * - Define las variables --font-geist-* que usa globals.css.
- * Storybook es solo modo claro: nunca se aplica la clase .dark.
+ * Storybook-only styles.
+ * - Loads Geist from the `geist` package (in the app, next/font does this).
+ * - Defines the --font-geist-* variables used by globals.css.
+ * Storybook is light mode only: the .dark class is never applied.
  */
 @font-face {
   font-family: "Geist";

@@ -4,18 +4,18 @@ import { BadgeCheckIcon, ArrowUpRightIcon } from "lucide-react"
 import { Badge } from "@/components/ui/badge"
 
 const meta = {
-  title: "Datos/Badge",
+  title: "Data/Badge",
   component: Badge,
   tags: ["autodocs"],
   parameters: {
     docs: {
       description: {
         component: `
-**Qué es:** etiqueta pequeña para mostrar un estado, categoría o contador.
+**What it is:** a small label that shows a status, category or count.
 
-**Cuándo usarlo:** estados ("Enviado", "Pendiente"), etiquetas de producto ("Nuevo") o contadores. No es un botón: si debe ser clicable, renderízalo como enlace con \`render={<a href="…" />}\`.
+**When to use it:** statuses ("Shipped", "Pending"), product tags ("New") or counters. It is not a button: if it must be clickable, render it as a link with \`render={<a href="…" />}\`.
 
-**Archivo:** \`src/components/ui/badge.tsx\` → \`Badge\` (prop \`variant\`).
+**File:** \`src/components/ui/badge.tsx\` → \`Badge\` (prop \`variant\`).
 `,
       },
     },
@@ -28,20 +28,20 @@ const meta = {
     },
     children: { control: "text" },
   },
-  args: { variant: "default", children: "Nuevo" },
+  args: { variant: "default", children: "New" },
 } satisfies Meta<typeof Badge>
 
 export default meta
 type Story = StoryObj<typeof meta>
 
 export const Default: Story = {}
-export const Secondary: Story = { args: { variant: "secondary", children: "Pendiente" } }
-export const Destructive: Story = { args: { variant: "destructive", children: "Cancelado" } }
-export const Outline: Story = { args: { variant: "outline", children: "Borrador" } }
-export const Ghost: Story = { args: { variant: "ghost", children: "Archivado" } }
+export const Secondary: Story = { args: { variant: "secondary", children: "Pending" } }
+export const Destructive: Story = { args: { variant: "destructive", children: "Cancelled" } }
+export const Outline: Story = { args: { variant: "outline", children: "Draft" } }
+export const Ghost: Story = { args: { variant: "ghost", children: "Archived" } }
 
-export const TodasLasVariantes: Story = {
-  name: "Todas las variantes",
+export const AllVariants: Story = {
+  name: "All variants",
   render: () => (
     <div className="flex flex-wrap gap-2">
       <Badge>Default</Badge>
@@ -54,26 +54,27 @@ export const TodasLasVariantes: Story = {
   ),
 }
 
-export const ConIcono: Story = {
-  name: "Con icono",
+export const WithIcon: Story = {
+  name: "With icon",
   render: (args) => (
     <Badge {...args}>
       <BadgeCheckIcon data-icon="inline-start" />
-      Verificado
+      Verified
     </Badge>
   ),
 }
 
-export const ComoEnlace: Story = {
-  name: "Como enlace",
+export const AsLink: Story = {
+  name: "As link",
   render: (args) => (
     <Badge {...args} variant="outline" render={<a href="#" />}>
-      Ver pedido
+      View order
       <ArrowUpRightIcon data-icon="inline-end" />
     </Badge>
   ),
 }
 
-export const Contador: Story = {
+export const Counter: Story = {
+  name: "Counter",
   args: { children: "8", className: "h-5 min-w-5 rounded-full px-1 tabular-nums" },
 }

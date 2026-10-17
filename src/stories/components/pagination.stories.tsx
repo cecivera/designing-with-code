@@ -11,18 +11,18 @@ import {
 } from "@/components/ui/pagination"
 
 const meta = {
-  title: "Navegación/Pagination",
+  title: "Navigation/Pagination",
   component: Pagination,
   tags: ["autodocs"],
   parameters: {
     docs: {
       description: {
         component: `
-**Qué es:** controles para moverse entre páginas de resultados.
+**What it is:** controls for moving between pages of results.
 
-**Cuándo usarlo:** en tablas y listados largos donde el usuario necesita saber en qué página está o saltar a una concreta. Para feeds continuos, considera "Cargar más".
+**When to use it:** in tables and long lists where users need to know which page they're on or jump to a specific one. For continuous feeds, consider "Load more".
 
-**Archivo:** \`src/components/ui/pagination.tsx\` → \`Pagination\`, \`PaginationContent\`, \`PaginationItem\`, \`PaginationLink\` (prop \`isActive\`), \`PaginationPrevious\` / \`PaginationNext\` (prop \`text\`), \`PaginationEllipsis\`.
+**File:** \`src/components/ui/pagination.tsx\` → \`Pagination\`, \`PaginationContent\`, \`PaginationItem\`, \`PaginationLink\` (prop \`isActive\`), \`PaginationPrevious\` / \`PaginationNext\` (prop \`text\`), \`PaginationEllipsis\`.
 `,
       },
     },
@@ -37,7 +37,7 @@ export const Default: Story = {
     <Pagination {...args}>
       <PaginationContent>
         <PaginationItem>
-          <PaginationPrevious href="#" text="Anterior" />
+          <PaginationPrevious href="#" text="Previous" />
         </PaginationItem>
         <PaginationItem>
           <PaginationLink href="#">1</PaginationLink>
@@ -57,7 +57,7 @@ export const Default: Story = {
           <PaginationLink href="#">12</PaginationLink>
         </PaginationItem>
         <PaginationItem>
-          <PaginationNext href="#" text="Siguiente" />
+          <PaginationNext href="#" text="Next" />
         </PaginationItem>
       </PaginationContent>
     </Pagination>
@@ -65,15 +65,15 @@ export const Default: Story = {
 }
 
 export const Simple: Story = {
-  name: "Solo anterior / siguiente",
+  name: "Previous / next only",
   render: (args) => (
     <Pagination {...args}>
       <PaginationContent>
         <PaginationItem>
-          <PaginationPrevious href="#" text="Anterior" />
+          <PaginationPrevious href="#" text="Previous" />
         </PaginationItem>
         <PaginationItem>
-          <PaginationNext href="#" text="Siguiente" />
+          <PaginationNext href="#" text="Next" />
         </PaginationItem>
       </PaginationContent>
     </Pagination>

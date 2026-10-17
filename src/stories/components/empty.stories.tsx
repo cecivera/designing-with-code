@@ -19,17 +19,17 @@ const meta = {
     docs: {
       description: {
         component: `
-**Qué es:** "estado vacío": lo que se muestra cuando una lista o sección no tiene contenido todavía.
+**What it is:** an "empty state": what is shown when a list or section has no content yet.
 
-**Cuándo usarlo:** primeras veces (sin pedidos aún), búsquedas sin resultados o errores de carga. Explica por qué está vacío y ofrece la siguiente acción.
+**When to use it:** first-time use (no orders yet), searches with no results or loading errors. Explain why it is empty and offer the next action.
 
-**Archivo:** \`src/components/ui/empty.tsx\` → \`Empty\`, \`EmptyHeader\`, \`EmptyMedia\` (prop \`variant\`: \`default\` | \`icon\`), \`EmptyTitle\`, \`EmptyDescription\`, \`EmptyContent\`.
+**File:** \`src/components/ui/empty.tsx\` → \`Empty\`, \`EmptyHeader\`, \`EmptyMedia\` (prop \`variant\`: \`default\` | \`icon\`), \`EmptyTitle\`, \`EmptyDescription\`, \`EmptyContent\`.
 `,
       },
     },
   },
   argTypes: {
-    variant: { control: "inline-radio", options: ["default", "icon"], description: "Estilo del contenedor del icono/imagen." },
+    variant: { control: "inline-radio", options: ["default", "icon"], description: "Style of the icon/image container." },
   },
   args: { variant: "icon" },
 } satisfies Meta<typeof EmptyMedia>
@@ -44,29 +44,29 @@ export const Default: Story = {
         <EmptyMedia {...args}>
           <FolderOpenIcon />
         </EmptyMedia>
-        <EmptyTitle>Aún no hay pedidos</EmptyTitle>
-        <EmptyDescription>Cuando un cliente haga un pedido aparecerá aquí.</EmptyDescription>
+        <EmptyTitle>No orders yet</EmptyTitle>
+        <EmptyDescription>When a customer places an order, it will appear here.</EmptyDescription>
       </EmptyHeader>
       <EmptyContent>
         <Button>
           <PlusIcon data-icon="inline-start" />
-          Crear pedido
+          Create order
         </Button>
       </EmptyContent>
     </Empty>
   ),
 }
 
-export const SinResultados: Story = {
-  name: "Sin resultados de búsqueda",
+export const NoResults: Story = {
+  name: "No search results",
   render: () => (
     <Empty className="w-[420px]">
       <EmptyHeader>
-        <EmptyTitle>Sin resultados</EmptyTitle>
-        <EmptyDescription>Prueba con otro término o quita algún filtro.</EmptyDescription>
+        <EmptyTitle>No results</EmptyTitle>
+        <EmptyDescription>Try a different term or remove a filter.</EmptyDescription>
       </EmptyHeader>
       <EmptyContent>
-        <Button variant="outline">Limpiar filtros</Button>
+        <Button variant="outline">Clear filters</Button>
       </EmptyContent>
     </Empty>
   ),

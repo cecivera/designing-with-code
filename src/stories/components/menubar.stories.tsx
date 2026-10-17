@@ -18,18 +18,18 @@ import {
 } from "@/components/ui/menubar"
 
 const meta = {
-  title: "Navegación/Menubar",
+  title: "Navigation/Menubar",
   component: Menubar,
   tags: ["autodocs"],
   parameters: {
     docs: {
       description: {
         component: `
-**Qué es:** barra de menús horizontal tipo aplicación de escritorio (Archivo, Editar, Ver…).
+**What it is:** a horizontal desktop-app-style menu bar (File, Edit, View…).
 
-**Cuándo usarlo:** en herramientas complejas (editores, back-offices) con muchas acciones organizadas por categoría. En webs normales suele bastar con **DropdownMenu**.
+**When to use it:** in complex tools (editors, back offices) with many actions grouped by category. On regular websites a **DropdownMenu** is usually enough.
 
-**Archivo:** \`src/components/ui/menubar.tsx\` → \`Menubar\`, \`MenubarMenu\`, \`MenubarTrigger\`, \`MenubarContent\`, \`MenubarItem\`, \`MenubarCheckboxItem\`, \`MenubarRadioGroup\`/\`MenubarRadioItem\`, \`MenubarSub\`…
+**File:** \`src/components/ui/menubar.tsx\` → \`Menubar\`, \`MenubarMenu\`, \`MenubarTrigger\`, \`MenubarContent\`, \`MenubarItem\`, \`MenubarCheckboxItem\`, \`MenubarRadioGroup\`/\`MenubarRadioItem\`, \`MenubarSub\`…
 `,
       },
     },
@@ -44,15 +44,15 @@ export const Default: Story = {
   render: (args) => (
     <Menubar {...args}>
       <MenubarMenu>
-        <MenubarTrigger>Archivo</MenubarTrigger>
+        <MenubarTrigger>File</MenubarTrigger>
         <MenubarContent>
           <MenubarGroup>
             <MenubarItem>
-              Nuevo pedido <MenubarShortcut>⌘N</MenubarShortcut>
+              New order <MenubarShortcut>⌘N</MenubarShortcut>
             </MenubarItem>
-            <MenubarItem>Duplicar</MenubarItem>
+            <MenubarItem>Duplicate</MenubarItem>
             <MenubarSub>
-              <MenubarSubTrigger>Exportar</MenubarSubTrigger>
+              <MenubarSubTrigger>Export</MenubarSubTrigger>
               <MenubarSubContent>
                 <MenubarItem>CSV</MenubarItem>
                 <MenubarItem>Excel</MenubarItem>
@@ -61,26 +61,26 @@ export const Default: Story = {
             </MenubarSub>
           </MenubarGroup>
           <MenubarSeparator />
-          <MenubarItem variant="destructive">Eliminar</MenubarItem>
+          <MenubarItem variant="destructive">Delete</MenubarItem>
         </MenubarContent>
       </MenubarMenu>
       <MenubarMenu>
-        <MenubarTrigger>Ver</MenubarTrigger>
+        <MenubarTrigger>View</MenubarTrigger>
         <MenubarContent>
-          <MenubarCheckboxItem defaultChecked>Mostrar precios</MenubarCheckboxItem>
-          <MenubarCheckboxItem>Mostrar stock</MenubarCheckboxItem>
+          <MenubarCheckboxItem defaultChecked>Show prices</MenubarCheckboxItem>
+          <MenubarCheckboxItem>Show stock</MenubarCheckboxItem>
           <MenubarSeparator />
-          <MenubarRadioGroup defaultValue="tabla">
-            <MenubarRadioItem value="tabla">Tabla</MenubarRadioItem>
-            <MenubarRadioItem value="tarjetas">Tarjetas</MenubarRadioItem>
+          <MenubarRadioGroup defaultValue="table">
+            <MenubarRadioItem value="table">Table</MenubarRadioItem>
+            <MenubarRadioItem value="cards">Cards</MenubarRadioItem>
           </MenubarRadioGroup>
         </MenubarContent>
       </MenubarMenu>
       <MenubarMenu>
-        <MenubarTrigger>Ayuda</MenubarTrigger>
+        <MenubarTrigger>Help</MenubarTrigger>
         <MenubarContent>
-          <MenubarItem>Documentación</MenubarItem>
-          <MenubarItem disabled>Contactar soporte</MenubarItem>
+          <MenubarItem>Documentation</MenubarItem>
+          <MenubarItem disabled>Contact support</MenubarItem>
         </MenubarContent>
       </MenubarMenu>
     </Menubar>

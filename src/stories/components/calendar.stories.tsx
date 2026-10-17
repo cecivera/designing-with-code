@@ -1,23 +1,22 @@
 import * as React from "react"
 import type { Meta, StoryObj } from "@storybook/nextjs-vite"
 import type { DateRange } from "react-day-picker"
-import { es } from "react-day-picker/locale"
 
 import { Calendar } from "@/components/ui/calendar"
 
 const meta = {
-  title: "Formularios/Calendar",
+  title: "Forms/Calendar",
   component: Calendar,
   tags: ["autodocs"],
   parameters: {
     docs: {
       description: {
         component: `
-**Qué es:** calendario para elegir una fecha o un rango (basado en react-day-picker).
+**What it is:** a calendar for picking a date or a range (built on react-day-picker).
 
-**Cuándo usarlo:** fechas de entrega, periodos de campaña, reservas. Para un selector compacto, ponlo dentro de un **Popover** abierto desde un botón o input.
+**When to use it:** delivery dates, campaign periods, bookings. For a compact picker, place it inside a **Popover** opened from a button or input.
 
-**Archivo:** \`src/components/ui/calendar.tsx\` → \`Calendar\` (props de react-day-picker: \`mode\`, \`selected\`, \`onSelect\`, \`numberOfMonths\`, \`captionLayout\`, \`locale\`…).
+**File:** \`src/components/ui/calendar.tsx\` → \`Calendar\` (react-day-picker props: \`mode\`, \`selected\`, \`onSelect\`, \`numberOfMonths\`, \`captionLayout\`, \`locale\`…).
 `,
       },
     },
@@ -26,13 +25,13 @@ const meta = {
     captionLayout: {
       control: "inline-radio",
       options: ["label", "dropdown", "dropdown-months", "dropdown-years"],
-      description: "Cabecera con texto o con desplegables de mes/año.",
+      description: "Header with text or with month/year dropdowns.",
     },
     numberOfMonths: { control: { type: "number", min: 1, max: 3 } },
     showOutsideDays: { control: "boolean" },
     buttonVariant: { control: "select", options: ["ghost", "outline", "secondary"] },
   },
-  args: { captionLayout: "label", numberOfMonths: 1, showOutsideDays: true, locale: es },
+  args: { captionLayout: "label", numberOfMonths: 1, showOutsideDays: true },
 } satisfies Meta<typeof Calendar>
 
 export default meta
@@ -52,10 +51,10 @@ function SingleDemo(props: React.ComponentProps<typeof Calendar>) {
   )
 }
 
-export const Default: Story = { name: "Fecha única", render: (args) => <SingleDemo {...args} /> }
+export const Default: Story = { name: "Single date", render: (args) => <SingleDemo {...args} /> }
 
-export const ConDesplegables: Story = {
-  name: "Con desplegables de mes/año",
+export const WithDropdowns: Story = {
+  name: "With month/year dropdowns",
   args: { captionLayout: "dropdown" },
   render: (args) => <SingleDemo {...args} />,
 }
@@ -78,4 +77,4 @@ function RangeDemo(props: React.ComponentProps<typeof Calendar>) {
   )
 }
 
-export const Rango: Story = { name: "Rango de fechas", render: (args) => <RangeDemo {...args} /> }
+export const Range: Story = { name: "Date range", render: (args) => <RangeDemo {...args} /> }

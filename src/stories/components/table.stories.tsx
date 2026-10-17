@@ -13,18 +13,18 @@ import {
 } from "@/components/ui/table"
 
 const meta = {
-  title: "Datos/Table",
+  title: "Data/Table",
   component: Table,
   tags: ["autodocs"],
   parameters: {
     docs: {
       description: {
         component: `
-**Qué es:** tabla para mostrar datos en filas y columnas, con cabecera, pie y leyenda.
+**What it is:** a table to display data in rows and columns, with header, footer and caption.
 
-**Cuándo usarlo:** para comparar registros con los mismos campos (pedidos, productos, clientes). Alinea los números a la derecha. Para ordenar/filtrar/paginar se combina con lógica propia (p. ej. TanStack Table) y **Pagination**.
+**When to use it:** to compare records with the same fields (orders, products, customers). Right-align numbers. For sorting/filtering/pagination, combine it with your own logic (e.g. TanStack Table) and **Pagination**.
 
-**Archivo:** \`src/components/ui/table.tsx\` → \`Table\`, \`TableHeader\`, \`TableBody\`, \`TableFooter\`, \`TableRow\`, \`TableHead\`, \`TableCell\`, \`TableCaption\`.
+**File:** \`src/components/ui/table.tsx\` → \`Table\`, \`TableHeader\`, \`TableBody\`, \`TableFooter\`, \`TableRow\`, \`TableHead\`, \`TableCell\`, \`TableCaption\`.
 `,
       },
     },
@@ -35,40 +35,40 @@ const meta = {
 export default meta
 type Story = StoryObj<typeof meta>
 
-const pedidos = [
-  { id: "PED-001", cliente: "Deportes García", estado: "Enviado", total: 1250 },
-  { id: "PED-002", cliente: "Runners Madrid", estado: "Pendiente", total: 830 },
-  { id: "PED-003", cliente: "Fútbol Total", estado: "Cancelado", total: 420 },
-  { id: "PED-004", cliente: "Outdoor Norte", estado: "Enviado", total: 2100 },
+const orders = [
+  { id: "ORD-001", customer: "Downtown Store", status: "Shipped", total: 1250 },
+  { id: "ORD-002", customer: "City Runners", status: "Pending", total: 830 },
+  { id: "ORD-003", customer: "Goal Sports", status: "Cancelled", total: 420 },
+  { id: "ORD-004", customer: "North Outdoor", status: "Shipped", total: 2100 },
 ]
 
-const variante = {
-  Enviado: "default",
-  Pendiente: "secondary",
-  Cancelado: "destructive",
+const variant = {
+  Shipped: "default",
+  Pending: "secondary",
+  Cancelled: "destructive",
 } as const
 
-const eur = (n: number) => n.toLocaleString("es-ES", { style: "currency", currency: "EUR" })
+const eur = (n: number) => n.toLocaleString("en-GB", { style: "currency", currency: "EUR" })
 
 export const Default: Story = {
   render: (args) => (
     <Table {...args}>
-      <TableCaption>Pedidos mayoristas de octubre.</TableCaption>
+      <TableCaption>Wholesale orders for October.</TableCaption>
       <TableHeader>
         <TableRow>
-          <TableHead>Pedido</TableHead>
-          <TableHead>Cliente</TableHead>
-          <TableHead>Estado</TableHead>
+          <TableHead>Order</TableHead>
+          <TableHead>Customer</TableHead>
+          <TableHead>Status</TableHead>
           <TableHead className="text-right">Total</TableHead>
         </TableRow>
       </TableHeader>
       <TableBody>
-        {pedidos.map((p) => (
+        {orders.map((p) => (
           <TableRow key={p.id}>
             <TableCell className="font-medium">{p.id}</TableCell>
-            <TableCell>{p.cliente}</TableCell>
+            <TableCell>{p.customer}</TableCell>
             <TableCell>
-              <Badge variant={variante[p.estado as keyof typeof variante]}>{p.estado}</Badge>
+              <Badge variant={variant[p.status as keyof typeof variant]}>{p.status}</Badge>
             </TableCell>
             <TableCell className="text-right tabular-nums">{eur(p.total)}</TableCell>
           </TableRow>
@@ -78,7 +78,7 @@ export const Default: Story = {
         <TableRow>
           <TableCell colSpan={3}>Total</TableCell>
           <TableCell className="text-right tabular-nums">
-            {eur(pedidos.reduce((s, p) => s + p.total, 0))}
+            {eur(orders.reduce((s, p) => s + p.total, 0))}
           </TableCell>
         </TableRow>
       </TableFooter>
@@ -86,21 +86,21 @@ export const Default: Story = {
   ),
 }
 
-export const FilaSeleccionada: Story = {
-  name: "Fila seleccionada",
+export const SelectedRow: Story = {
+  name: "Selected row",
   render: (args) => (
     <Table {...args}>
       <TableHeader>
         <TableRow>
-          <TableHead>Pedido</TableHead>
-          <TableHead>Cliente</TableHead>
+          <TableHead>Order</TableHead>
+          <TableHead>Customer</TableHead>
         </TableRow>
       </TableHeader>
       <TableBody>
-        {pedidos.map((p, i) => (
+        {orders.map((p, i) => (
           <TableRow key={p.id} data-state={i === 1 ? "selected" : undefined}>
             <TableCell className="font-medium">{p.id}</TableCell>
-            <TableCell>{p.cliente}</TableCell>
+            <TableCell>{p.customer}</TableCell>
           </TableRow>
         ))}
       </TableBody>

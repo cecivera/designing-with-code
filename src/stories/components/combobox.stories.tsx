@@ -15,32 +15,32 @@ import {
   useComboboxAnchor,
 } from "@/components/ui/combobox"
 
-const modelos = ["Samba", "Gazelle", "Superstar", "Stan Smith", "Campus", "Ultraboost"]
+const models = ["Running Shoe", "Canvas Sneaker", "Hiking Boot", "Slip-On", "Trail Runner", "Court Classic"]
 
 const meta = {
-  title: "Formularios/Combobox",
+  title: "Forms/Combobox",
   component: ComboboxInput,
   tags: ["autodocs"],
   parameters: {
     docs: {
       description: {
         component: `
-**Qué es:** un campo de texto con lista desplegable que filtra mientras escribes. Admite selección única o múltiple (chips).
+**What it is:** a text field with a dropdown list that filters as you type. Supports single or multiple selection (chips).
 
-**Cuándo usarlo:** con listas largas donde buscar es más rápido que desplazarse (países, productos, clientes). Con pocas opciones usa **Select**.
+**When to use it:** with long lists where searching is faster than scrolling (countries, products, customers). For just a few options, use **Select**.
 
-**Archivo:** \`src/components/ui/combobox.tsx\` → \`Combobox\`, \`ComboboxInput\` (props \`showTrigger\`, \`showClear\`), \`ComboboxContent\`, \`ComboboxList\`, \`ComboboxItem\`, \`ComboboxEmpty\`, \`ComboboxChips\`…
+**File:** \`src/components/ui/combobox.tsx\` → \`Combobox\`, \`ComboboxInput\` (props \`showTrigger\`, \`showClear\`), \`ComboboxContent\`, \`ComboboxList\`, \`ComboboxItem\`, \`ComboboxEmpty\`, \`ComboboxChips\`…
 `,
       },
     },
   },
   argTypes: {
     placeholder: { control: "text" },
-    showTrigger: { control: "boolean", description: "Muestra la flecha para abrir la lista." },
-    showClear: { control: "boolean", description: "Muestra el botón para borrar." },
+    showTrigger: { control: "boolean", description: "Shows the arrow that opens the list." },
+    showClear: { control: "boolean", description: "Shows the clear button." },
     disabled: { control: "boolean" },
   },
-  args: { placeholder: "Busca un modelo", showTrigger: true, showClear: false },
+  args: { placeholder: "Search for a model", showTrigger: true, showClear: false },
 } satisfies Meta<typeof ComboboxInput>
 
 export default meta
@@ -48,10 +48,10 @@ type Story = StoryObj<typeof meta>
 
 export const Default: Story = {
   render: (args) => (
-    <Combobox items={modelos}>
+    <Combobox items={models}>
       <ComboboxInput {...args} />
       <ComboboxContent>
-        <ComboboxEmpty>No hay resultados.</ComboboxEmpty>
+        <ComboboxEmpty>No results found.</ComboboxEmpty>
         <ComboboxList>
           {(item: string) => (
             <ComboboxItem key={item} value={item}>
@@ -64,18 +64,18 @@ export const Default: Story = {
   ),
 }
 
-export const ConBotonBorrar: Story = {
-  name: "Con botón borrar",
+export const WithClearButton: Story = {
+  name: "With clear button",
   args: { showClear: true },
   render: Default.render,
 }
 
-export const Deshabilitado: Story = { args: { disabled: true }, render: Default.render }
+export const Disabled: Story = { name: "Disabled", args: { disabled: true }, render: Default.render }
 
 function MultipleDemo() {
   const anchor = useComboboxAnchor()
   return (
-    <Combobox multiple autoHighlight items={modelos} defaultValue={[modelos[0], modelos[2]]}>
+    <Combobox multiple autoHighlight items={models} defaultValue={[models[0], models[2]]}>
       <ComboboxChips ref={anchor} className="w-80">
         <ComboboxValue>
           {(values: string[]) => (
@@ -83,13 +83,13 @@ function MultipleDemo() {
               {values.map((value) => (
                 <ComboboxChip key={value}>{value}</ComboboxChip>
               ))}
-              <ComboboxChipsInput placeholder="Añadir modelo" />
+              <ComboboxChipsInput placeholder="Add model" />
             </React.Fragment>
           )}
         </ComboboxValue>
       </ComboboxChips>
       <ComboboxContent anchor={anchor}>
-        <ComboboxEmpty>No hay resultados.</ComboboxEmpty>
+        <ComboboxEmpty>No results found.</ComboboxEmpty>
         <ComboboxList>
           {(item: string) => (
             <ComboboxItem key={item} value={item}>
@@ -103,6 +103,6 @@ function MultipleDemo() {
 }
 
 export const Multiple: Story = {
-  name: "Selección múltiple (chips)",
+  name: "Multiple selection (chips)",
   render: () => <MultipleDemo />,
 }

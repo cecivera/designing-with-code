@@ -4,42 +4,42 @@ import { Label } from "@/components/ui/label"
 import { RadioGroup, RadioGroupItem } from "@/components/ui/radio-group"
 
 const meta = {
-  title: "Formularios/RadioGroup",
+  title: "Forms/RadioGroup",
   component: RadioGroup,
   tags: ["autodocs"],
   parameters: {
     docs: {
       description: {
         component: `
-**Qué es:** grupo de opciones donde solo se puede elegir una.
+**What it is:** a group of options where only one can be selected.
 
-**Cuándo usarlo:** con 2–5 opciones excluyentes que conviene ver todas a la vez (método de envío, plan). Con más opciones, usa **Select**.
+**When to use it:** with 2–5 mutually exclusive options that are best seen all at once (shipping method, plan). With more options, use **Select**.
 
-**Archivo:** \`src/components/ui/radio-group.tsx\` → \`RadioGroup\`, \`RadioGroupItem\`.
+**File:** \`src/components/ui/radio-group.tsx\` → \`RadioGroup\`, \`RadioGroupItem\`.
 `,
       },
     },
   },
   argTypes: {
-    defaultValue: { control: "inline-radio", options: ["estandar", "express", "recogida"] },
+    defaultValue: { control: "inline-radio", options: ["standard", "express", "pickup"] },
     disabled: { control: "boolean" },
   },
-  args: { defaultValue: "estandar" },
+  args: { defaultValue: "standard" },
 } satisfies Meta<typeof RadioGroup>
 
 export default meta
 type Story = StoryObj<typeof meta>
 
-const opciones = [
-  { value: "estandar", label: "Envío estándar (3–5 días)" },
-  { value: "express", label: "Envío express (24 h)" },
-  { value: "recogida", label: "Recogida en tienda" },
+const options = [
+  { value: "standard", label: "Standard shipping (3–5 days)" },
+  { value: "express", label: "Express shipping (24 h)" },
+  { value: "pickup", label: "In-store pickup" },
 ]
 
 export const Default: Story = {
   render: (args) => (
     <RadioGroup {...args}>
-      {opciones.map((o) => (
+      {options.map((o) => (
         <div key={o.value} className="flex items-center gap-2">
           <RadioGroupItem value={o.value} id={o.value} />
           <Label htmlFor={o.value}>{o.label}</Label>
@@ -49,13 +49,13 @@ export const Default: Story = {
   ),
 }
 
-export const Deshabilitado: Story = { args: { disabled: true }, render: Default.render }
+export const Disabled: Story = { name: "Disabled", args: { disabled: true }, render: Default.render }
 
-export const OpcionDeshabilitada: Story = {
-  name: "Una opción deshabilitada",
+export const DisabledOption: Story = {
+  name: "One option disabled",
   render: (args) => (
     <RadioGroup {...args}>
-      {opciones.map((o) => (
+      {options.map((o) => (
         <div key={o.value} className="flex items-center gap-2">
           <RadioGroupItem value={o.value} id={`d-${o.value}`} disabled={o.value === "express"} />
           <Label htmlFor={`d-${o.value}`}>{o.label}</Label>

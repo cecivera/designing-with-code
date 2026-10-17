@@ -15,18 +15,18 @@ import {
 } from "@/components/ui/item"
 
 const meta = {
-  title: "Datos/Item",
+  title: "Data/Item",
   component: Item,
   tags: ["autodocs"],
   parameters: {
     docs: {
       description: {
         component: `
-**Qué es:** fila flexible con media (icono/avatar/imagen), título, descripción y acciones. Es la base para listas.
+**What it is:** a flexible row with media (icon/avatar/image), title, description and actions. It's the building block for lists.
 
-**Cuándo usarlo:** listas de ajustes, notificaciones, miembros de un equipo, resultados. Para datos tabulares comparables usa **Table**.
+**When to use it:** settings lists, notifications, team members, results. For comparable tabular data use **Table**.
 
-**Archivo:** \`src/components/ui/item.tsx\` → \`Item\` (props \`variant\`, \`size\`, \`render\`), \`ItemMedia\` (prop \`variant\`), \`ItemContent\`, \`ItemTitle\`, \`ItemDescription\`, \`ItemActions\`, \`ItemGroup\`, \`ItemSeparator\`, \`ItemHeader\`, \`ItemFooter\`.
+**File:** \`src/components/ui/item.tsx\` → \`Item\` (props \`variant\`, \`size\`, \`render\`), \`ItemMedia\` (prop \`variant\`), \`ItemContent\`, \`ItemTitle\`, \`ItemDescription\`, \`ItemActions\`, \`ItemGroup\`, \`ItemSeparator\`, \`ItemHeader\`, \`ItemFooter\`.
 `,
       },
     },
@@ -46,33 +46,33 @@ export const Default: Story = {
   render: (args) => (
     <Item {...args}>
       <ItemContent>
-        <ItemTitle>Pedido PED-002</ItemTitle>
-        <ItemDescription>Runners Madrid · 830,00 €</ItemDescription>
+        <ItemTitle>Order ORD-002</ItemTitle>
+        <ItemDescription>Downtown Runners · €830.00</ItemDescription>
       </ItemContent>
       <ItemActions>
-        <Button variant="outline" size="sm">Ver</Button>
+        <Button variant="outline" size="sm">View</Button>
       </ItemActions>
     </Item>
   ),
 }
 
-export const ConIcono: Story = {
-  name: "Con icono",
+export const WithIcon: Story = {
+  name: "With icon",
   render: (args) => (
     <Item {...args}>
       <ItemMedia variant="icon">
         <PackageIcon />
       </ItemMedia>
       <ItemContent>
-        <ItemTitle>Nuevo envío</ItemTitle>
-        <ItemDescription>Tu pedido sale hoy del almacén.</ItemDescription>
+        <ItemTitle>New shipment</ItemTitle>
+        <ItemDescription>Your order leaves the warehouse today.</ItemDescription>
       </ItemContent>
     </Item>
   ),
 }
 
-export const ComoEnlace: Story = {
-  name: "Como enlace",
+export const AsLink: Story = {
+  name: "As link",
   args: { size: "sm" },
   render: (args) => (
     <Item {...args} render={<a href="#" />}>
@@ -80,7 +80,7 @@ export const ComoEnlace: Story = {
         <BadgeCheckIcon className="size-5" />
       </ItemMedia>
       <ItemContent>
-        <ItemTitle>Tu perfil está verificado</ItemTitle>
+        <ItemTitle>Your profile is verified</ItemTitle>
       </ItemContent>
       <ItemActions>
         <ChevronRightIcon className="size-4" />
@@ -89,14 +89,15 @@ export const ComoEnlace: Story = {
   ),
 }
 
-export const Variantes: Story = {
+export const Variants: Story = {
+  name: "Variants",
   render: () => (
     <div className="flex flex-col gap-3">
       {(["default", "outline", "muted"] as const).map((v) => (
         <Item key={v} variant={v}>
           <ItemContent>
-            <ItemTitle>Variante {v}</ItemTitle>
-            <ItemDescription>Descripción del item.</ItemDescription>
+            <ItemTitle>Variant {v}</ItemTitle>
+            <ItemDescription>Item description.</ItemDescription>
           </ItemContent>
         </Item>
       ))}
@@ -104,11 +105,11 @@ export const Variantes: Story = {
   ),
 }
 
-export const Lista: Story = {
-  name: "Lista (ItemGroup)",
+export const List: Story = {
+  name: "List (ItemGroup)",
   render: () => (
     <ItemGroup>
-      {["Ana López", "Bruno Díaz", "Carla Ruiz"].map((n, i) => (
+      {["Anna Lee", "Ben Davis", "Carla Reed"].map((n, i) => (
         <div key={n}>
           {i > 0 && <ItemSeparator />}
           <Item>
@@ -122,7 +123,7 @@ export const Lista: Story = {
               <ItemDescription>Account manager</ItemDescription>
             </ItemContent>
             <ItemActions>
-              <Button variant="ghost" size="sm">Contactar</Button>
+              <Button variant="ghost" size="sm">Contact</Button>
             </ItemActions>
           </Item>
         </div>

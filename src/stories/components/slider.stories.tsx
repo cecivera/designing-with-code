@@ -3,18 +3,18 @@ import type { Meta, StoryObj } from "@storybook/nextjs-vite"
 import { Slider } from "@/components/ui/slider"
 
 const meta = {
-  title: "Formularios/Slider",
+  title: "Forms/Slider",
   component: Slider,
   tags: ["autodocs"],
   parameters: {
     docs: {
       description: {
         component: `
-**Qué es:** control deslizante para elegir un valor o un rango dentro de unos límites.
+**What it is:** a sliding control to pick a value or a range within set limits.
 
-**Cuándo usarlo:** cuando el valor exacto importa menos que la posición relativa (volumen, rango de precios). Si el usuario necesita un número exacto, añade también un **Input** numérico.
+**When to use it:** when the exact value matters less than the relative position (volume, price range). If the user needs an exact number, also add a numeric **Input**.
 
-**Archivo:** \`src/components/ui/slider.tsx\` → \`Slider\` (props \`defaultValue\` (número o array), \`min\`, \`max\`, \`step\`, \`orientation\`, \`disabled\`).
+**File:** \`src/components/ui/slider.tsx\` → \`Slider\` (props \`defaultValue\` (number or array), \`min\`, \`max\`, \`step\`, \`orientation\`, \`disabled\`).
 `,
       },
     },
@@ -35,10 +35,10 @@ type Story = StoryObj<typeof meta>
 
 export const Default: Story = {}
 
-export const Rango: Story = { args: { defaultValue: [25, 75], step: 5 } }
+export const Range: Story = { name: "Range", args: { defaultValue: [25, 75], step: 5 } }
 
-export const VariosValores: Story = { name: "Varios valores", args: { defaultValue: [10, 40, 80], step: 10 } }
+export const MultipleValues: Story = { name: "Multiple values", args: { defaultValue: [10, 40, 80], step: 10 } }
 
 export const Vertical: Story = { args: { orientation: "vertical", defaultValue: 40 } }
 
-export const Deshabilitado: Story = { args: { disabled: true } }
+export const Disabled: Story = { name: "Disabled", args: { disabled: true } }

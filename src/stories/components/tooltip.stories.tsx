@@ -13,11 +13,11 @@ const meta = {
     docs: {
       description: {
         component: `
-**Qué es:** etiqueta de texto breve que aparece al pasar el ratón o enfocar un elemento.
+**What it is:** a short text label that appears when hovering over or focusing an element.
 
-**Cuándo usarlo:** para nombrar botones de solo icono o mostrar atajos. Texto corto y no esencial (en móvil no se ve). Para contenido más rico, **HoverCard** o **Popover**.
+**When to use it:** to label icon-only buttons or show shortcuts. Keep it short and non-essential (it is not visible on mobile). For richer content, use **HoverCard** or **Popover**.
 
-**Archivo:** \`src/components/ui/tooltip.tsx\` → \`TooltipProvider\` (prop \`delay\`), \`Tooltip\`, \`TooltipTrigger\`, \`TooltipContent\` (props \`side\`, \`align\`).
+**File:** \`src/components/ui/tooltip.tsx\` → \`TooltipProvider\` (prop \`delay\`), \`Tooltip\`, \`TooltipTrigger\`, \`TooltipContent\` (props \`side\`, \`align\`).
 `,
       },
     },
@@ -44,33 +44,34 @@ type Story = StoryObj<typeof meta>
 export const Default: Story = {
   render: (args) => (
     <Tooltip>
-      <TooltipTrigger render={<Button variant="outline" size="icon" aria-label="Añadir" />}>
+      <TooltipTrigger render={<Button variant="outline" size="icon" aria-label="Add" />}>
         <PlusIcon />
       </TooltipTrigger>
-      <TooltipContent {...args}>Añadir a la colección</TooltipContent>
+      <TooltipContent {...args}>Add to collection</TooltipContent>
     </Tooltip>
   ),
 }
 
-export const ConAtajo: Story = {
-  name: "Con atajo",
+export const WithShortcut: Story = {
+  name: "With shortcut",
   render: (args) => (
     <Tooltip>
-      <TooltipTrigger render={<Button variant="outline" />}>Guardar</TooltipTrigger>
+      <TooltipTrigger render={<Button variant="outline" />}>Save</TooltipTrigger>
       <TooltipContent {...args}>
-        Guardar cambios <Kbd>⌘S</Kbd>
+        Save changes <Kbd>⌘S</Kbd>
       </TooltipContent>
     </Tooltip>
   ),
 }
 
-export const Lados: Story = {
+export const Sides: Story = {
+  name: "Sides",
   render: () => (
     <div className="flex gap-2">
       {(["top", "right", "bottom", "left"] as const).map((side) => (
         <Tooltip key={side}>
           <TooltipTrigger render={<Button variant="outline" />}>{side}</TooltipTrigger>
-          <TooltipContent side={side}>Tooltip en {side}</TooltipContent>
+          <TooltipContent side={side}>Tooltip on {side}</TooltipContent>
         </Tooltip>
       ))}
     </div>

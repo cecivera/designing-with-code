@@ -3,9 +3,9 @@
 import * as React from "react"
 
 /**
- * Bloques visuales para las páginas de documentación (Fundamentos).
- * Leen el valor REAL de cada variable CSS en tiempo de ejecución, así que
- * siempre reflejan lo que hay en src/app/globals.css (modo claro, :root).
+ * Visual blocks for the documentation pages (Foundations).
+ * They read the REAL value of each CSS variable at runtime, so they
+ * always reflect what's in src/app/globals.css (light mode, :root).
  */
 
 const noopSubscribe = () => () => {}
@@ -67,7 +67,7 @@ export function RadiusScale() {
   return (
     <div className="my-4 font-sans">
       <p className="mb-3 text-sm text-muted-foreground">
-        Valor base <code className="font-mono">--radius</code>: <strong className="text-foreground">{base || "…"}</strong>
+        Base value <code className="font-mono">--radius</code>: <strong className="text-foreground">{base || "…"}</strong>
       </p>
       <div className="flex flex-wrap gap-4">
         {radii.map((r) => (
@@ -86,12 +86,12 @@ export function RadiusScale() {
 }
 
 const scale = [
-  { label: "Hero", className: "text-5xl font-semibold tracking-tight", sample: "Diseñar con código" },
-  { label: "Section heading", className: "text-3xl font-semibold tracking-tight", sample: "Pedidos de la temporada" },
-  { label: "Subheading", className: "text-xl font-medium", sample: "Resumen de ventas" },
-  { label: "Body", className: "text-base", sample: "Texto de párrafo para la mayoría del contenido." },
-  { label: "Label", className: "text-sm font-medium", sample: "Nombre de la tienda" },
-  { label: "Caption", className: "text-xs text-muted-foreground", sample: "Actualizado hace 5 minutos" },
+  { label: "Hero", className: "text-5xl font-semibold tracking-tight", sample: "Designing with code" },
+  { label: "Section heading", className: "text-3xl font-semibold tracking-tight", sample: "Orders this season" },
+  { label: "Subheading", className: "text-xl font-medium", sample: "Sales summary" },
+  { label: "Body", className: "text-base", sample: "Paragraph text for most of the content." },
+  { label: "Label", className: "text-sm font-medium", sample: "Store name" },
+  { label: "Caption", className: "text-xs text-muted-foreground", sample: "Updated 5 minutes ago" },
   { label: "Mono", className: "font-mono text-sm", sample: "src/components/ui/button.tsx" },
 ]
 
@@ -122,7 +122,7 @@ export function FontSpecimen({ family, variable }: { family: "sans" | "mono"; va
         </code>
       </div>
       <p className={family === "sans" ? "font-sans text-3xl" : "font-mono text-2xl"}>
-        Aa Bb Cc Ññ 0123456789
+        Aa Bb Cc Dd Ee 0123456789
       </p>
       <div className={`mt-2 flex flex-wrap gap-4 text-sm ${family === "sans" ? "font-sans" : "font-mono"}`}>
         <span className="font-light">Light 300</span>

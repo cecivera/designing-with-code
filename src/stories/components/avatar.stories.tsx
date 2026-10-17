@@ -10,18 +10,18 @@ import {
 } from "@/components/ui/avatar"
 
 const meta = {
-  title: "Datos/Avatar",
+  title: "Data/Avatar",
   component: Avatar,
   tags: ["autodocs"],
   parameters: {
     docs: {
       description: {
         component: `
-**Qué es:** imagen circular que representa a una persona o entidad, con iniciales de respaldo si la imagen no carga.
+**What it is:** a circular image representing a person or entity, with fallback initials if the image doesn't load.
 
-**Cuándo usarlo:** junto a nombres de usuario, en comentarios, asignaciones o listas de equipo. Usa \`AvatarGroup\` para mostrar varias personas.
+**When to use it:** next to user names, in comments, assignments or team lists. Use \`AvatarGroup\` to show several people.
 
-**Archivo:** \`src/components/ui/avatar.tsx\` → \`Avatar\` (prop \`size\`), \`AvatarImage\`, \`AvatarFallback\`, \`AvatarBadge\`, \`AvatarGroup\`, \`AvatarGroupCount\`.
+**File:** \`src/components/ui/avatar.tsx\` → \`Avatar\` (prop \`size\`), \`AvatarImage\`, \`AvatarFallback\`, \`AvatarBadge\`, \`AvatarGroup\`, \`AvatarGroupCount\`.
 `,
       },
     },
@@ -44,8 +44,8 @@ export const Default: Story = {
   ),
 }
 
-export const SoloIniciales: Story = {
-  name: "Solo iniciales (fallback)",
+export const InitialsOnly: Story = {
+  name: "Initials only (fallback)",
   render: (args) => (
     <Avatar {...args}>
       <AvatarFallback>CV</AvatarFallback>
@@ -53,8 +53,8 @@ export const SoloIniciales: Story = {
   ),
 }
 
-export const Tamanos: Story = {
-  name: "Tamaños",
+export const Sizes: Story = {
+  name: "Sizes",
   render: () => (
     <div className="flex items-center gap-3">
       {(["sm", "default", "lg"] as const).map((s) => (
@@ -66,8 +66,8 @@ export const Tamanos: Story = {
   ),
 }
 
-export const ConEstado: Story = {
-  name: "Con indicador (badge)",
+export const WithStatus: Story = {
+  name: "With indicator (badge)",
   render: (args) => (
     <Avatar {...args}>
       <AvatarFallback>CV</AvatarFallback>
@@ -76,7 +76,8 @@ export const ConEstado: Story = {
   ),
 }
 
-export const Grupo: Story = {
+export const Group: Story = {
+  name: "Group",
   render: (args) => (
     <AvatarGroup>
       {["AB", "CD", "EF"].map((i) => (

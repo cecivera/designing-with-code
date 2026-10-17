@@ -7,18 +7,18 @@ import {
 } from "@/components/ui/native-select"
 
 const meta = {
-  title: "Formularios/NativeSelect",
+  title: "Forms/NativeSelect",
   component: NativeSelect,
   tags: ["autodocs"],
   parameters: {
     docs: {
       description: {
         component: `
-**Qué es:** el \`<select>\` nativo del navegador con el estilo del sistema.
+**What it is:** the browser's native \`<select>\` with the system's styling.
 
-**Cuándo usarlo:** en formularios sencillos y sobre todo en móvil, donde el selector nativo del sistema operativo es más cómodo. Para listas con diseño propio usa **Select**; con búsqueda, **Combobox**.
+**When to use it:** in simple forms and especially on mobile, where the operating system's native picker is more comfortable. For custom-styled lists use **Select**; with search, **Combobox**.
 
-**Archivo:** \`src/components/ui/native-select.tsx\` → \`NativeSelect\` (prop \`size\`), \`NativeSelectOption\`, \`NativeSelectOptGroup\`.
+**File:** \`src/components/ui/native-select.tsx\` → \`NativeSelect\` (prop \`size\`), \`NativeSelectOption\`, \`NativeSelectOptGroup\`.
 `,
       },
     },
@@ -38,33 +38,33 @@ export const Default: Story = {
   render: (args) => (
     <NativeSelect {...args} defaultValue="">
       <NativeSelectOption value="" disabled>
-        Elige un país
+        Choose a country
       </NativeSelectOption>
-      <NativeSelectOption value="es">España</NativeSelectOption>
-      <NativeSelectOption value="de">Alemania</NativeSelectOption>
-      <NativeSelectOption value="fr">Francia</NativeSelectOption>
+      <NativeSelectOption value="es">Spain</NativeSelectOption>
+      <NativeSelectOption value="de">Germany</NativeSelectOption>
+      <NativeSelectOption value="fr">France</NativeSelectOption>
     </NativeSelect>
   ),
 }
 
-export const ConGrupos: Story = {
-  name: "Con grupos",
+export const WithGroups: Story = {
+  name: "With groups",
   render: (args) => (
     <NativeSelect {...args}>
-      <NativeSelectOptGroup label="Europa">
-        <NativeSelectOption value="es">España</NativeSelectOption>
-        <NativeSelectOption value="de">Alemania</NativeSelectOption>
+      <NativeSelectOptGroup label="Europe">
+        <NativeSelectOption value="es">Spain</NativeSelectOption>
+        <NativeSelectOption value="de">Germany</NativeSelectOption>
       </NativeSelectOptGroup>
-      <NativeSelectOptGroup label="América">
-        <NativeSelectOption value="mx">México</NativeSelectOption>
-        <NativeSelectOption value="us">Estados Unidos</NativeSelectOption>
+      <NativeSelectOptGroup label="Americas">
+        <NativeSelectOption value="mx">Mexico</NativeSelectOption>
+        <NativeSelectOption value="us">United States</NativeSelectOption>
       </NativeSelectOptGroup>
     </NativeSelect>
   ),
 }
 
-export const Pequeno: Story = { name: "Pequeño (sm)", args: { size: "sm" }, render: Default.render }
+export const Small: Story = { name: "Small (sm)", args: { size: "sm" }, render: Default.render }
 
-export const ConError: Story = { name: "Con error", args: { "aria-invalid": true }, render: Default.render }
+export const WithError: Story = { name: "With error", args: { "aria-invalid": true }, render: Default.render }
 
-export const Deshabilitado: Story = { args: { disabled: true }, render: Default.render }
+export const Disabled: Story = { name: "Disabled", args: { disabled: true }, render: Default.render }

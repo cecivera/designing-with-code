@@ -12,11 +12,11 @@ const meta = {
     docs: {
       description: {
         component: `
-**Qué es:** indicador de carga giratorio.
+**What it is:** a spinning loading indicator.
 
-**Cuándo usarlo:** para esperas cortas sin progreso conocido (enviando un formulario, cargando un dato). Dentro de botones, desactiva el botón mientras gira. Para cargas de contenido largo, **Skeleton**.
+**When to use it:** for short waits with no known progress (submitting a form, loading a value). Inside buttons, disable the button while it spins. For loading larger content, use **Skeleton**.
 
-**Archivo:** \`src/components/ui/spinner.tsx\` → \`Spinner\` (tamaño y color con clases: \`size-6\`, \`text-muted-foreground\`).
+**File:** \`src/components/ui/spinner.tsx\` → \`Spinner\` (size and color via classes: \`size-6\`, \`text-muted-foreground\`).
 `,
       },
     },
@@ -29,8 +29,8 @@ type Story = StoryObj<typeof meta>
 
 export const Default: Story = {}
 
-export const Tamanos: Story = {
-  name: "Tamaños",
+export const Sizes: Story = {
+  name: "Sizes",
   render: () => (
     <div className="flex items-center gap-4">
       <Spinner className="size-3" />
@@ -41,17 +41,17 @@ export const Tamanos: Story = {
   ),
 }
 
-export const EnBoton: Story = {
-  name: "En botón y badge",
+export const OnButton: Story = {
+  name: "In button and badge",
   render: () => (
     <div className="flex items-center gap-4">
       <Button disabled>
         <Spinner data-icon="inline-start" />
-        Guardando…
+        Saving…
       </Button>
       <Badge variant="secondary">
         <Spinner data-icon="inline-start" />
-        Sincronizando
+        Syncing
       </Badge>
     </div>
   ),
