@@ -15,6 +15,8 @@ const eslintConfig = defineConfig([
     "build/**",
     "next-env.d.ts",
     "storybook-static/**",
+    // Code Connect templates use the anonymous default export format Figma expects.
+    "src/figma/**",
   ]),
 ]);
 
