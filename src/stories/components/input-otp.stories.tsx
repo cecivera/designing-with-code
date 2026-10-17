@@ -9,18 +9,18 @@ import {
 } from "@/components/ui/input-otp"
 
 const meta = {
-  title: "Formularios/InputOTP",
+  title: "Forms/InputOTP",
   component: InputOTP,
   tags: ["autodocs"],
   parameters: {
     docs: {
       description: {
         component: `
-**Qué es:** campo para códigos de un solo uso (OTP), con una casilla por carácter.
+**What it is:** a field for one-time passcodes (OTP), with one box per character.
 
-**Cuándo usarlo:** verificación en dos pasos, códigos enviados por SMS o email, PIN.
+**When to use it:** two-step verification, codes sent by SMS or email, PINs.
 
-**Archivo:** \`src/components/ui/input-otp.tsx\` → \`InputOTP\` (props \`maxLength\`, \`pattern\`, \`disabled\`), \`InputOTPGroup\`, \`InputOTPSlot\`, \`InputOTPSeparator\`.
+**File:** \`src/components/ui/input-otp.tsx\` → \`InputOTP\` (props \`maxLength\`, \`pattern\`, \`disabled\`), \`InputOTPGroup\`, \`InputOTPSlot\`, \`InputOTPSeparator\`.
 `,
       },
     },
@@ -53,8 +53,8 @@ export const Default: Story = {
   ),
 }
 
-export const CuatroDigitos: Story = {
-  name: "4 dígitos",
+export const FourDigits: Story = {
+  name: "4 digits",
   render: ({ disabled }) => (
     <InputOTP maxLength={4} disabled={disabled}>
       <InputOTPGroup>
@@ -66,8 +66,8 @@ export const CuatroDigitos: Story = {
   ),
 }
 
-export const Alfanumerico: Story = {
-  name: "Alfanumérico",
+export const Alphanumeric: Story = {
+  name: "Alphanumeric",
   render: ({ disabled }) => (
     <InputOTP maxLength={6} disabled={disabled} pattern={REGEXP_ONLY_DIGITS_AND_CHARS}>
       <InputOTPGroup>
@@ -79,7 +79,8 @@ export const Alfanumerico: Story = {
   ),
 }
 
-export const Deshabilitado: Story = {
+export const Disabled: Story = {
+  name: "Disabled",
   args: { disabled: true, defaultValue: "123456" },
   render: Default.render,
 }

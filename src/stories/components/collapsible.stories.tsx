@@ -16,11 +16,11 @@ const meta = {
     docs: {
       description: {
         component: `
-**Qué es:** un bloque que se muestra u oculta al pulsar un disparador. Sin estilos propios: tú decides el aspecto.
+**What it is:** a block that shows or hides when a trigger is pressed. It has no styles of its own: you decide how it looks.
 
-**Cuándo usarlo:** "Ver más", opciones avanzadas o submenús de un **Sidebar**. Para varias secciones tipo FAQ, **Accordion**.
+**When to use it:** "Show more", advanced options or **Sidebar** submenus. For several FAQ-style sections, use **Accordion**.
 
-**Archivo:** \`src/components/ui/collapsible.tsx\` → \`Collapsible\` (props \`open\` / \`defaultOpen\`, \`disabled\`), \`CollapsibleTrigger\`, \`CollapsibleContent\`.
+**File:** \`src/components/ui/collapsible.tsx\` → \`Collapsible\` (props \`open\` / \`defaultOpen\`, \`disabled\`), \`CollapsibleTrigger\`, \`CollapsibleContent\`.
 `,
       },
     },
@@ -39,18 +39,18 @@ export const Default: Story = {
   render: (args) => (
     <Collapsible {...args} className="flex w-80 flex-col gap-2">
       <div className="flex items-center justify-between gap-4">
-        <h4 className="text-sm font-semibold">3 pedidos pendientes</h4>
-        <CollapsibleTrigger render={<Button variant="ghost" size="icon-sm" aria-label="Mostrar/ocultar" />}>
+        <h4 className="text-sm font-semibold">3 pending orders</h4>
+        <CollapsibleTrigger render={<Button variant="ghost" size="icon-sm" aria-label="Toggle" />}>
           <ChevronsUpDownIcon />
         </CollapsibleTrigger>
       </div>
-      <div className="rounded-md border px-4 py-2 font-mono text-sm">PED-001</div>
+      <div className="rounded-md border px-4 py-2 font-mono text-sm">ORD-001</div>
       <CollapsibleContent className="flex flex-col gap-2">
-        <div className="rounded-md border px-4 py-2 font-mono text-sm">PED-002</div>
-        <div className="rounded-md border px-4 py-2 font-mono text-sm">PED-003</div>
+        <div className="rounded-md border px-4 py-2 font-mono text-sm">ORD-002</div>
+        <div className="rounded-md border px-4 py-2 font-mono text-sm">ORD-003</div>
       </CollapsibleContent>
     </Collapsible>
   ),
 }
 
-export const Abierto: Story = { args: { defaultOpen: true }, render: Default.render }
+export const Open: Story = { name: "Open", args: { defaultOpen: true }, render: Default.render }

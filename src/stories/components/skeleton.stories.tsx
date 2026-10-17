@@ -10,11 +10,11 @@ const meta = {
     docs: {
       description: {
         component: `
-**Qué es:** bloque gris animado que ocupa el lugar del contenido mientras carga.
+**What it is:** an animated gray block that takes the place of content while it loads.
 
-**Cuándo usarlo:** al cargar listas, tarjetas o perfiles, imitando la forma final para evitar saltos de layout. Para acciones cortas (un botón guardando) usa **Spinner**.
+**When to use it:** when loading lists, cards or profiles, mimicking the final shape to avoid layout shifts. For short actions (a button saving), use **Spinner**.
 
-**Archivo:** \`src/components/ui/skeleton.tsx\` → \`Skeleton\` (la forma se define con clases: \`h-4 w-40\`, \`rounded-full\`…).
+**File:** \`src/components/ui/skeleton.tsx\` → \`Skeleton\` (the shape is defined with classes: \`h-4 w-40\`, \`rounded-full\`…).
 `,
       },
     },
@@ -27,7 +27,8 @@ type Story = StoryObj<typeof meta>
 
 export const Default: Story = {}
 
-export const Perfil: Story = {
+export const Profile: Story = {
+  name: "Profile",
   render: () => (
     <div className="flex items-center gap-4">
       <Skeleton className="size-12 rounded-full" />
@@ -39,7 +40,8 @@ export const Perfil: Story = {
   ),
 }
 
-export const Tarjeta: Story = {
+export const Card: Story = {
+  name: "Card",
   render: () => (
     <div className="grid w-72 gap-3">
       <Skeleton className="h-40 w-full rounded-xl" />

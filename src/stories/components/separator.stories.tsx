@@ -10,11 +10,11 @@ const meta = {
     docs: {
       description: {
         component: `
-**Qué es:** línea fina que separa visualmente bloques de contenido.
+**What it is:** a thin line that visually separates blocks of content.
 
-**Cuándo usarlo:** entre secciones de un menú, una tarjeta o una barra de herramientas. Si basta con espacio en blanco, mejor no añadir líneas.
+**When to use it:** between sections of a menu, card or toolbar. If white space is enough, it's better not to add lines.
 
-**Archivo:** \`src/components/ui/separator.tsx\` → \`Separator\` (prop \`orientation\`).
+**File:** \`src/components/ui/separator.tsx\` → \`Separator\` (prop \`orientation\`).
 `,
       },
     },
@@ -33,7 +33,7 @@ export const Horizontal: Story = {
     <div className="w-72">
       <div className="space-y-1">
         <h4 className="text-sm font-medium">Evergreen</h4>
-        <p className="text-sm text-muted-foreground">Sistema de diseño basado en shadcn/ui.</p>
+        <p className="text-sm text-muted-foreground">Design system based on shadcn/ui.</p>
       </div>
       <Separator {...args} className="my-4" />
       <div className="flex h-5 items-center gap-4 text-sm">
@@ -41,7 +41,7 @@ export const Horizontal: Story = {
         <Separator orientation="vertical" />
         <span>Docs</span>
         <Separator orientation="vertical" />
-        <span>Código</span>
+        <span>Code</span>
       </div>
     </div>
   ),
@@ -51,11 +51,11 @@ export const Vertical: Story = {
   args: { orientation: "vertical" },
   render: (args) => (
     <div className="flex h-6 items-center gap-4 text-sm">
-      <span>Pedidos</span>
+      <span>Orders</span>
       <Separator {...args} />
-      <span>Clientes</span>
+      <span>Customers</span>
       <Separator {...args} />
-      <span>Informes</span>
+      <span>Reports</span>
     </div>
   ),
 }

@@ -12,18 +12,18 @@ import {
 import { Kbd } from "@/components/ui/kbd"
 
 const meta = {
-  title: "Formularios/InputGroup",
+  title: "Forms/InputGroup",
   component: InputGroupAddon,
   tags: ["autodocs"],
   parameters: {
     docs: {
       description: {
         component: `
-**Qué es:** un Input (o Textarea) con elementos añadidos dentro del mismo borde: iconos, texto (prefijos/sufijos), atajos de teclado o botones.
+**What it is:** an Input (or Textarea) with extra elements inside the same border: icons, text (prefixes/suffixes), keyboard shortcuts or buttons.
 
-**Cuándo usarlo:** buscadores con icono, precios con "€", URLs con "https://", campos con botón copiar o un compositor de mensajes con botón enviar.
+**When to use it:** search fields with an icon, prices with "€", URLs with "https://", fields with a copy button or a message composer with a send button.
 
-**Archivo:** \`src/components/ui/input-group.tsx\` → \`InputGroup\`, \`InputGroupAddon\` (prop \`align\`), \`InputGroupInput\`, \`InputGroupTextarea\`, \`InputGroupText\`, \`InputGroupButton\`.
+**File:** \`src/components/ui/input-group.tsx\` → \`InputGroup\`, \`InputGroupAddon\` (prop \`align\`), \`InputGroupInput\`, \`InputGroupTextarea\`, \`InputGroupText\`, \`InputGroupButton\`.
 `,
       },
     },
@@ -32,7 +32,7 @@ const meta = {
     align: {
       control: "select",
       options: ["inline-start", "inline-end", "block-start", "block-end"],
-      description: "Dónde se coloca el addon: delante, detrás, arriba o abajo.",
+      description: "Where the addon is placed: before, after, above or below.",
     },
   },
   args: { align: "inline-start" },
@@ -42,11 +42,11 @@ const meta = {
 export default meta
 type Story = StoryObj<typeof meta>
 
-export const ConIcono: Story = {
-  name: "Con icono",
+export const WithIcon: Story = {
+  name: "With icon",
   render: (args) => (
     <InputGroup>
-      <InputGroupInput placeholder="Buscar productos…" />
+      <InputGroupInput placeholder="Search products…" />
       <InputGroupAddon {...args}>
         <SearchIcon />
       </InputGroupAddon>
@@ -54,14 +54,14 @@ export const ConIcono: Story = {
   ),
 }
 
-export const PrefijoYSufijo: Story = {
-  name: "Prefijo y sufijo",
+export const PrefixAndSuffix: Story = {
+  name: "Prefix and suffix",
   render: () => (
     <InputGroup>
       <InputGroupAddon>
         <EuroIcon />
       </InputGroupAddon>
-      <InputGroupInput placeholder="0,00" />
+      <InputGroupInput placeholder="0.00" />
       <InputGroupAddon align="inline-end">
         <InputGroupText>EUR</InputGroupText>
       </InputGroupAddon>
@@ -69,13 +69,13 @@ export const PrefijoYSufijo: Story = {
   ),
 }
 
-export const ConBoton: Story = {
-  name: "Con botón",
+export const WithButton: Story = {
+  name: "With button",
   render: () => (
     <InputGroup>
       <InputGroupInput readOnly defaultValue="https://evergreen.app/p/123" />
       <InputGroupAddon align="inline-end">
-        <InputGroupButton size="icon-xs" aria-label="Copiar">
+        <InputGroupButton size="icon-xs" aria-label="Copy">
           <CopyIcon />
         </InputGroupButton>
       </InputGroupAddon>
@@ -83,14 +83,14 @@ export const ConBoton: Story = {
   ),
 }
 
-export const ConAtajo: Story = {
-  name: "Con atajo de teclado",
+export const WithShortcut: Story = {
+  name: "With keyboard shortcut",
   render: () => (
     <InputGroup>
       <InputGroupAddon>
         <SearchIcon />
       </InputGroupAddon>
-      <InputGroupInput placeholder="Buscar…" />
+      <InputGroupInput placeholder="Search…" />
       <InputGroupAddon align="inline-end">
         <Kbd>⌘K</Kbd>
       </InputGroupAddon>
@@ -98,14 +98,14 @@ export const ConAtajo: Story = {
   ),
 }
 
-export const ConTextarea: Story = {
-  name: "Con textarea (compositor)",
+export const WithTextarea: Story = {
+  name: "With textarea (composer)",
   render: () => (
     <InputGroup>
-      <InputGroupTextarea placeholder="Escribe un mensaje…" />
+      <InputGroupTextarea placeholder="Write a message…" />
       <InputGroupAddon align="block-end">
         <InputGroupText>0/280</InputGroupText>
-        <InputGroupButton variant="default" size="icon-xs" className="ml-auto" aria-label="Enviar">
+        <InputGroupButton variant="default" size="icon-xs" className="ml-auto" aria-label="Send">
           <ArrowUpIcon />
         </InputGroupButton>
       </InputGroupAddon>

@@ -3,18 +3,18 @@ import type { Meta, StoryObj } from "@storybook/nextjs-vite"
 import { Kbd, KbdGroup } from "@/components/ui/kbd"
 
 const meta = {
-  title: "Datos/Kbd",
+  title: "Data/Kbd",
   component: Kbd,
   tags: ["autodocs"],
   parameters: {
     docs: {
       description: {
         component: `
-**Qué es:** muestra una tecla o atajo de teclado.
+**What it is:** displays a key or keyboard shortcut.
 
-**Cuándo usarlo:** en menús, tooltips o ayudas para indicar atajos (⌘K, Ctrl + C). Usa \`KbdGroup\` para combinaciones.
+**When to use it:** in menus, tooltips or help text to show shortcuts (⌘K, Ctrl + C). Use \`KbdGroup\` for key combinations.
 
-**Archivo:** \`src/components/ui/kbd.tsx\` → \`Kbd\`, \`KbdGroup\`.
+**File:** \`src/components/ui/kbd.tsx\` → \`Kbd\`, \`KbdGroup\`.
 `,
       },
     },
@@ -28,8 +28,8 @@ type Story = StoryObj<typeof meta>
 
 export const Default: Story = {}
 
-export const Combinacion: Story = {
-  name: "Combinación",
+export const Combination: Story = {
+  name: "Combination",
   render: () => (
     <KbdGroup>
       <Kbd>Ctrl</Kbd>
@@ -39,11 +39,11 @@ export const Combinacion: Story = {
   ),
 }
 
-export const EnTexto: Story = {
-  name: "Dentro de un texto",
+export const OnText: Story = {
+  name: "Inline in text",
   render: () => (
     <p className="text-sm text-muted-foreground">
-      Pulsa <Kbd>⌘</Kbd> <Kbd>K</Kbd> para abrir el buscador.
+      Press <Kbd>⌘</Kbd> <Kbd>K</Kbd> to open search.
     </p>
   ),
 }

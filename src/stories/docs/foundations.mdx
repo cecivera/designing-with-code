@@ -1,0 +1,136 @@
+import { Meta, Unstyled } from "@storybook/addon-docs/blocks"
+
+import { FontSpecimen, RadiusScale, SwatchGrid, TypeScale } from "./tokens"
+
+<Meta title="Foundations" />
+
+# Foundations
+
+**Tokens** are named design decisions: colors, radii and typography. In this project they live as **CSS variables** in
+`src/app/globals.css`, and Tailwind turns them into classes (`bg-primary`, `text-muted-foreground`, `rounded-lg`…).
+
+- `:root` block → **light mode** values (the ones you see on this page and across Storybook).
+- `@theme inline` block → connects each variable to Tailwind (`--color-primary: var(--primary)`).
+- Project rule: **never hardcode colors**; always use the token (`bg-primary`, not `bg-[#171717]`).
+
+> Each swatch reads its value live from the CSS, so if you change `globals.css` this page updates automatically.
+> Color format: [OKLCH](https://oklch.com) (lightness, chroma, hue).
+
+## Base colors
+
+Every background color has a `-foreground` pair for the text on top of it (the "Aa" sample uses that pair).
+
+<Unstyled>
+  <SwatchGrid
+    tokens={[
+      { name: "background", usage: "Page background · bg-background", text: "foreground" },
+      { name: "foreground", usage: "Main text · text-foreground", text: "background" },
+      { name: "primary", usage: "Primary action (Button default)", text: "primary-foreground" },
+      { name: "primary-foreground", usage: "Text on primary", text: "primary" },
+      { name: "secondary", usage: "Secondary action", text: "secondary-foreground" },
+      { name: "secondary-foreground", usage: "Text on secondary", text: "secondary" },
+      { name: "muted", usage: "Subtle backgrounds, skeleton, tabs", text: "muted-foreground" },
+      { name: "muted-foreground", usage: "Secondary text / hints", text: "muted" },
+      { name: "accent", usage: "Hover / focus in menus", text: "accent-foreground" },
+      { name: "accent-foreground", usage: "Text on accent", text: "accent" },
+      { name: "destructive", usage: "Errors and dangerous actions" },
+    ]}
+  />
+</Unstyled>
+
+## Surfaces
+
+<Unstyled>
+  <SwatchGrid
+    tokens={[
+      { name: "card", usage: "Card background", text: "card-foreground" },
+      { name: "card-foreground", usage: "Text in Card", text: "card" },
+      { name: "popover", usage: "Popover, Dialog and menu background", text: "popover-foreground" },
+      { name: "popover-foreground", usage: "Text in popovers", text: "popover" },
+    ]}
+  />
+</Unstyled>
+
+## Borders and focus
+
+<Unstyled>
+  <SwatchGrid
+    tokens={[
+      { name: "border", usage: "Borders and separators · border-border" },
+      { name: "input", usage: "Input, Select and Textarea border" },
+      { name: "ring", usage: "Focus ring (keyboard)" },
+    ]}
+  />
+</Unstyled>
+
+## Charts
+
+Palette for data series in **Chart** (`var(--chart-1)` … `var(--chart-5)`).
+
+<Unstyled>
+  <SwatchGrid
+    tokens={[
+      { name: "chart-1", usage: "Series 1" },
+      { name: "chart-2", usage: "Series 2" },
+      { name: "chart-3", usage: "Series 3" },
+      { name: "chart-4", usage: "Series 4" },
+      { name: "chart-5", usage: "Series 5" },
+    ]}
+  />
+</Unstyled>
+
+## Sidebar
+
+Tokens specific to the **Sidebar** component, so it can have a different color from the rest of the page.
+
+<Unstyled>
+  <SwatchGrid
+    tokens={[
+      { name: "sidebar", usage: "Sidebar background", text: "sidebar-foreground" },
+      { name: "sidebar-foreground", usage: "Sidebar text", text: "sidebar" },
+      { name: "sidebar-primary", usage: "Active item / brand", text: "sidebar-primary-foreground" },
+      { name: "sidebar-primary-foreground", usage: "Text on sidebar-primary", text: "sidebar-primary" },
+      { name: "sidebar-accent", usage: "Item hover", text: "sidebar-accent-foreground" },
+      { name: "sidebar-accent-foreground", usage: "Text on hover", text: "sidebar-accent" },
+      { name: "sidebar-border", usage: "Sidebar borders" },
+      { name: "sidebar-ring", usage: "Focus in the sidebar" },
+    ]}
+  />
+</Unstyled>
+
+## Evergreen brand
+
+Defined in `src/app/evergreen-brand.css` (brand layer; you can delete it when using the starter for another project).
+
+<Unstyled>
+  <SwatchGrid tokens={[{ name: "color-evergreen", usage: "Chartreuse accent · text-evergreen" }]} />
+</Unstyled>
+
+## Radius (border-radius)
+
+All radii come from a single variable, `--radius`. Changing it changes the corners across the whole system.
+
+<Unstyled>
+  <RadiusScale />
+</Unstyled>
+
+> **Note:** `evergreen-brand.css` forces **radius 0** (square corners) on Button, Card, Badge, Input, Textarea, Dialog and Sheet as a brand decision.
+> That's why those components look square even though `--radius` is `0.625rem`.
+
+## Typography
+
+The font is **Geist** (by Vercel). In the app it's loaded by `next/font` in `src/app/layout.tsx`; in Storybook it's loaded from the `geist` package (`.storybook/preview.css`).
+Tailwind exposes it as `font-sans` and `font-mono`.
+
+<Unstyled>
+  <FontSpecimen family="sans" variable="--font-geist-sans" />
+  <FontSpecimen family="mono" variable="--font-geist-mono" />
+</Unstyled>
+
+### Type scale
+
+The project's text styles, built with Tailwind classes:
+
+<Unstyled>
+  <TypeScale />
+</Unstyled>

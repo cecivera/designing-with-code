@@ -4,18 +4,18 @@ import { Label } from "@/components/ui/label"
 import { Textarea } from "@/components/ui/textarea"
 
 const meta = {
-  title: "Formularios/Textarea",
+  title: "Forms/Textarea",
   component: Textarea,
   tags: ["autodocs"],
   parameters: {
     docs: {
       description: {
         component: `
-**Qué es:** campo de texto de varias líneas que crece con el contenido.
+**What it is:** a multi-line text field that grows with its content.
 
-**Cuándo usarlo:** para comentarios, descripciones o notas. Para una sola línea usa **Input**.
+**When to use it:** for comments, descriptions or notes. For a single line, use **Input**.
 
-**Archivo:** \`src/components/ui/textarea.tsx\` → \`Textarea\` (props nativas de \`<textarea>\`).
+**File:** \`src/components/ui/textarea.tsx\` → \`Textarea\` (native \`<textarea>\` props).
 `,
       },
     },
@@ -25,7 +25,7 @@ const meta = {
     disabled: { control: "boolean" },
     "aria-invalid": { control: "boolean" },
   },
-  args: { placeholder: "Escribe tu mensaje…" },
+  args: { placeholder: "Type your message…" },
   decorators: [(Story) => <div className="w-80"><Story /></div>],
 } satisfies Meta<typeof Textarea>
 
@@ -34,17 +34,17 @@ type Story = StoryObj<typeof meta>
 
 export const Default: Story = {}
 
-export const ConLabel: Story = {
-  name: "Con label",
+export const WithLabel: Story = {
+  name: "With label",
   render: (args) => (
     <div className="grid gap-2">
-      <Label htmlFor="mensaje">Comentarios del pedido</Label>
-      <Textarea {...args} id="mensaje" />
-      <p className="text-sm text-muted-foreground">Máximo 500 caracteres.</p>
+      <Label htmlFor="message">Order comments</Label>
+      <Textarea {...args} id="message" />
+      <p className="text-sm text-muted-foreground">Maximum 500 characters.</p>
     </div>
   ),
 }
 
-export const ConError: Story = { name: "Con error", args: { "aria-invalid": true } }
+export const WithError: Story = { name: "With error", args: { "aria-invalid": true } }
 
-export const Deshabilitado: Story = { args: { disabled: true } }
+export const Disabled: Story = { name: "Disabled", args: { disabled: true } }

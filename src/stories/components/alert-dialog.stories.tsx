@@ -23,11 +23,11 @@ const meta = {
     docs: {
       description: {
         component: `
-**Qué es:** diálogo modal que interrumpe al usuario para confirmar una acción importante. No se cierra al hacer clic fuera.
+**What it is:** a modal dialog that interrupts the user to confirm an important action. It does not close when clicking outside.
 
-**Cuándo usarlo:** antes de acciones destructivas o irreversibles ("¿Eliminar pedido?"). Para mostrar información o formularios usa **Dialog**.
+**When to use it:** before destructive or irreversible actions ("Delete order?"). To show information or forms use **Dialog**.
 
-**Archivo:** \`src/components/ui/alert-dialog.tsx\` → \`AlertDialog\`, \`AlertDialogTrigger\`, \`AlertDialogContent\` (prop \`size\`), \`AlertDialogHeader\`, \`AlertDialogMedia\`, \`AlertDialogTitle\`, \`AlertDialogDescription\`, \`AlertDialogFooter\`, \`AlertDialogAction\`, \`AlertDialogCancel\`.
+**File:** \`src/components/ui/alert-dialog.tsx\` → \`AlertDialog\`, \`AlertDialogTrigger\`, \`AlertDialogContent\` (prop \`size\`), \`AlertDialogHeader\`, \`AlertDialogMedia\`, \`AlertDialogTitle\`, \`AlertDialogDescription\`, \`AlertDialogFooter\`, \`AlertDialogAction\`, \`AlertDialogCancel\`.
 `,
       },
     },
@@ -44,40 +44,40 @@ type Story = StoryObj<typeof meta>
 export const Default: Story = {
   render: (args) => (
     <AlertDialog>
-      <AlertDialogTrigger render={<Button variant="outline" />}>Eliminar pedido</AlertDialogTrigger>
+      <AlertDialogTrigger render={<Button variant="outline" />}>Delete order</AlertDialogTrigger>
       <AlertDialogContent {...args}>
         <AlertDialogHeader>
-          <AlertDialogTitle>¿Eliminar el pedido PED-002?</AlertDialogTitle>
+          <AlertDialogTitle>Delete order ORD-002?</AlertDialogTitle>
           <AlertDialogDescription>
-            Esta acción no se puede deshacer. El cliente dejará de ver el pedido.
+            This action cannot be undone. The customer will no longer see the order.
           </AlertDialogDescription>
         </AlertDialogHeader>
         <AlertDialogFooter>
-          <AlertDialogCancel>Cancelar</AlertDialogCancel>
-          <AlertDialogAction variant="destructive">Eliminar</AlertDialogAction>
+          <AlertDialogCancel>Cancel</AlertDialogCancel>
+          <AlertDialogAction variant="destructive">Delete</AlertDialogAction>
         </AlertDialogFooter>
       </AlertDialogContent>
     </AlertDialog>
   ),
 }
 
-export const Pequeno: Story = {
-  name: "Pequeño con icono",
+export const Small: Story = {
+  name: "Small with icon",
   args: { size: "sm" },
   render: (args) => (
     <AlertDialog>
-      <AlertDialogTrigger render={<Button variant="destructive" />}>Borrar</AlertDialogTrigger>
+      <AlertDialogTrigger render={<Button variant="destructive" />}>Delete</AlertDialogTrigger>
       <AlertDialogContent {...args}>
         <AlertDialogHeader>
           <AlertDialogMedia>
             <Trash2Icon />
           </AlertDialogMedia>
-          <AlertDialogTitle>¿Borrar archivo?</AlertDialogTitle>
-          <AlertDialogDescription>Se moverá a la papelera.</AlertDialogDescription>
+          <AlertDialogTitle>Delete file?</AlertDialogTitle>
+          <AlertDialogDescription>It will be moved to the trash.</AlertDialogDescription>
         </AlertDialogHeader>
         <AlertDialogFooter>
-          <AlertDialogCancel>Cancelar</AlertDialogCancel>
-          <AlertDialogAction variant="destructive">Borrar</AlertDialogAction>
+          <AlertDialogCancel>Cancel</AlertDialogCancel>
+          <AlertDialogAction variant="destructive">Delete</AlertDialogAction>
         </AlertDialogFooter>
       </AlertDialogContent>
     </AlertDialog>

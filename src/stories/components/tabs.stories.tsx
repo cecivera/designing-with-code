@@ -4,18 +4,18 @@ import { BarChart3Icon, PackageIcon, SettingsIcon } from "lucide-react"
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs"
 
 const meta = {
-  title: "Navegación/Tabs",
+  title: "Navigation/Tabs",
   component: TabsList,
   tags: ["autodocs"],
   parameters: {
     docs: {
       description: {
         component: `
-**Qué es:** pestañas para cambiar entre vistas relacionadas dentro de la misma página, sin navegar.
+**What it is:** tabs to switch between related views within the same page, without navigating.
 
-**Cuándo usarlo:** para separar contenido del mismo nivel (Resumen / Pedidos / Ajustes). Si cada opción es una página distinta, usa navegación (links); si solo cambia un filtro, **ToggleGroup**.
+**When to use it:** to separate content at the same level (Overview / Orders / Settings). If each option is a separate page, use navigation (links); if only a filter changes, use **ToggleGroup**.
 
-**Archivo:** \`src/components/ui/tabs.tsx\` → \`Tabs\` (prop \`orientation\`), \`TabsList\` (prop \`variant\`: \`default\` | \`line\`), \`TabsTrigger\`, \`TabsContent\`.
+**File:** \`src/components/ui/tabs.tsx\` → \`Tabs\` (prop \`orientation\`), \`TabsList\` (prop \`variant\`: \`default\` | \`line\`), \`TabsTrigger\`, \`TabsContent\`.
 `,
       },
     },
@@ -24,7 +24,7 @@ const meta = {
     variant: {
       control: "inline-radio",
       options: ["default", "line"],
-      description: "`default` = pastilla con fondo; `line` = subrayado.",
+      description: "`default` = pill with background; `line` = underline.",
       table: { defaultValue: { summary: "default" } },
     },
   },
@@ -36,29 +36,29 @@ type Story = StoryObj<typeof meta>
 
 export const Default: Story = {
   render: (args) => (
-    <Tabs defaultValue="resumen" className="w-96">
+    <Tabs defaultValue="overview" className="w-96">
       <TabsList {...args}>
-        <TabsTrigger value="resumen">Resumen</TabsTrigger>
-        <TabsTrigger value="pedidos">Pedidos</TabsTrigger>
-        <TabsTrigger value="ajustes">Ajustes</TabsTrigger>
+        <TabsTrigger value="overview">Overview</TabsTrigger>
+        <TabsTrigger value="orders">Orders</TabsTrigger>
+        <TabsTrigger value="ajustes">Settings</TabsTrigger>
       </TabsList>
-      <TabsContent value="resumen">Ventas de la temporada y KPIs principales.</TabsContent>
-      <TabsContent value="pedidos">Listado de pedidos mayoristas.</TabsContent>
-      <TabsContent value="ajustes">Preferencias de la cuenta.</TabsContent>
+      <TabsContent value="overview">Season sales and key KPIs.</TabsContent>
+      <TabsContent value="orders">Wholesale order list.</TabsContent>
+      <TabsContent value="ajustes">Account preferences.</TabsContent>
     </Tabs>
   ),
 }
 
-export const Linea: Story = { name: "Línea", args: { variant: "line" }, render: Default.render }
+export const Line: Story = { name: "Line", args: { variant: "line" }, render: Default.render }
 
-export const ConIconos: Story = {
-  name: "Con iconos",
+export const WithIcons: Story = {
+  name: "With icons",
   render: (args) => (
-    <Tabs defaultValue="resumen">
+    <Tabs defaultValue="overview">
       <TabsList {...args}>
-        <TabsTrigger value="resumen"><BarChart3Icon />Resumen</TabsTrigger>
-        <TabsTrigger value="pedidos"><PackageIcon />Pedidos</TabsTrigger>
-        <TabsTrigger value="ajustes"><SettingsIcon />Ajustes</TabsTrigger>
+        <TabsTrigger value="overview"><BarChart3Icon />Overview</TabsTrigger>
+        <TabsTrigger value="orders"><PackageIcon />Orders</TabsTrigger>
+        <TabsTrigger value="ajustes"><SettingsIcon />Settings</TabsTrigger>
       </TabsList>
     </Tabs>
   ),
@@ -66,27 +66,27 @@ export const ConIconos: Story = {
 
 export const Vertical: Story = {
   render: (args) => (
-    <Tabs defaultValue="resumen" orientation="vertical" className="w-96">
+    <Tabs defaultValue="overview" orientation="vertical" className="w-96">
       <TabsList {...args}>
-        <TabsTrigger value="resumen">Resumen</TabsTrigger>
-        <TabsTrigger value="pedidos">Pedidos</TabsTrigger>
-        <TabsTrigger value="ajustes">Ajustes</TabsTrigger>
+        <TabsTrigger value="overview">Overview</TabsTrigger>
+        <TabsTrigger value="orders">Orders</TabsTrigger>
+        <TabsTrigger value="ajustes">Settings</TabsTrigger>
       </TabsList>
-      <TabsContent value="resumen">Contenido de Resumen</TabsContent>
-      <TabsContent value="pedidos">Contenido de Pedidos</TabsContent>
-      <TabsContent value="ajustes">Contenido de Ajustes</TabsContent>
+      <TabsContent value="overview">Overview content</TabsContent>
+      <TabsContent value="orders">Orders content</TabsContent>
+      <TabsContent value="ajustes">Settings content</TabsContent>
     </Tabs>
   ),
 }
 
-export const ConPestanaDeshabilitada: Story = {
-  name: "Con pestaña deshabilitada",
+export const WithDisabledTab: Story = {
+  name: "With disabled tab",
   render: (args) => (
-    <Tabs defaultValue="resumen">
+    <Tabs defaultValue="overview">
       <TabsList {...args}>
-        <TabsTrigger value="resumen">Resumen</TabsTrigger>
-        <TabsTrigger value="pedidos" disabled>Pedidos</TabsTrigger>
-        <TabsTrigger value="ajustes">Ajustes</TabsTrigger>
+        <TabsTrigger value="overview">Overview</TabsTrigger>
+        <TabsTrigger value="orders" disabled>Orders</TabsTrigger>
+        <TabsTrigger value="ajustes">Settings</TabsTrigger>
       </TabsList>
     </Tabs>
   ),

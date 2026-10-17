@@ -4,25 +4,25 @@ import { Checkbox } from "@/components/ui/checkbox"
 import { Label } from "@/components/ui/label"
 
 const meta = {
-  title: "Formularios/Checkbox",
+  title: "Forms/Checkbox",
   component: Checkbox,
   tags: ["autodocs"],
   parameters: {
     docs: {
       description: {
         component: `
-**Qué es:** casilla de verificación para marcar o desmarcar una opción.
+**What it is:** a checkbox to check or uncheck an option.
 
-**Cuándo usarlo:** para opciones independientes (varias pueden estar marcadas) o para aceptar condiciones. Si solo puede haber una opción, usa **RadioGroup**; si el cambio se aplica al instante (un ajuste), **Switch**.
+**When to use it:** for independent options (several can be checked) or to accept terms. If only one option is allowed, use **RadioGroup**; if the change applies instantly (a setting), **Switch**.
 
-**Archivo:** \`src/components/ui/checkbox.tsx\` → \`Checkbox\` (props \`checked\`, \`defaultChecked\`, \`indeterminate\`, \`disabled\`).
+**File:** \`src/components/ui/checkbox.tsx\` → \`Checkbox\` (props \`checked\`, \`defaultChecked\`, \`indeterminate\`, \`disabled\`).
 `,
       },
     },
   },
   argTypes: {
-    defaultChecked: { control: "boolean", description: "Estado inicial." },
-    indeterminate: { control: "boolean", description: "Estado mixto (p. ej. \"seleccionar todo\" parcial)." },
+    defaultChecked: { control: "boolean", description: "Initial state." },
+    indeterminate: { control: "boolean", description: "Mixed state (e.g. a partial \"select all\")." },
     disabled: { control: "boolean" },
     "aria-invalid": { control: "boolean" },
   },
@@ -32,34 +32,35 @@ const meta = {
 export default meta
 type Story = StoryObj<typeof meta>
 
-export const Default: Story = { args: { "aria-label": "Seleccionar" } }
+export const Default: Story = { args: { "aria-label": "Select" } }
 
-export const ConLabel: Story = {
-  name: "Con label",
+export const WithLabel: Story = {
+  name: "With label",
   render: (args) => (
     <div className="flex items-center gap-2">
       <Checkbox {...args} id="newsletter" />
-      <Label htmlFor="newsletter">Recibir novedades por email</Label>
+      <Label htmlFor="newsletter">Get updates by email</Label>
     </div>
   ),
 }
 
-export const Marcado: Story = { args: { defaultChecked: true, "aria-label": "Marcado" } }
+export const Checked: Story = { name: "Checked", args: { defaultChecked: true, "aria-label": "Checked" } }
 
-export const Indeterminado: Story = { args: { indeterminate: true, "aria-label": "Indeterminado" } }
+export const Indeterminate: Story = { name: "Indeterminate", args: { indeterminate: true, "aria-label": "Indeterminate" } }
 
-export const ConError: Story = { name: "Con error", args: { "aria-invalid": true, "aria-label": "Error" } }
+export const WithError: Story = { name: "With error", args: { "aria-invalid": true, "aria-label": "Error" } }
 
-export const Deshabilitado: Story = {
+export const Disabled: Story = {
+  name: "Disabled",
   args: { disabled: true, defaultChecked: true },
-  render: ConLabel.render,
+  render: WithLabel.render,
 }
 
-export const Lista: Story = {
-  name: "Lista de opciones",
+export const List: Story = {
+  name: "Option list",
   render: () => (
     <div className="grid gap-3">
-      {["Calzado", "Textil", "Accesorios"].map((c, i) => (
+      {["Footwear", "Apparel", "Accessories"].map((c, i) => (
         <div key={c} className="flex items-center gap-2">
           <Checkbox id={`cat-${c}`} defaultChecked={i === 0} />
           <Label htmlFor={`cat-${c}`}>{c}</Label>

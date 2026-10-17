@@ -20,22 +20,22 @@ const preview: Preview = {
     },
     backgrounds: {
       options: {
-        white: { name: "Blanco", value: "#ffffff" },
+        white: { name: "White", value: "#ffffff" },
       },
     },
     options: {
       storySort: {
         order: [
-          "Introducción",
-          "Fundamentos",
-          "Acciones",
-          "Formularios",
-          "Navegación",
-          "Datos",
+          "Introduction",
+          "Foundations",
+          "Actions",
+          "Forms",
+          "Navigation",
+          "Data",
           "Feedback",
           "Overlays",
           "Layout",
-          "Utilidades",
+          "Utilities",
         ],
       },
     },

@@ -11,8 +11,8 @@ const config: StorybookConfig = {
   core: {
     disableTelemetry: true,
   },
-  // Silencia los avisos de Vite sobre la directiva "use client" de Base UI/Next
-  // (no aplican fuera de Next.js y ensucian la salida del build).
+  // Silence Vite warnings about the "use client" directive in Base UI/Next
+  // (they don't apply outside Next.js and clutter the build output).
   viteFinal: async (viteConfig) => {
     viteConfig.build ??= {}
     viteConfig.build.rollupOptions ??= {}

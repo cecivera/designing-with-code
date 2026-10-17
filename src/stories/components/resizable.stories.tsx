@@ -14,11 +14,11 @@ const meta = {
     docs: {
       description: {
         component: `
-**Qué es:** paneles cuyo tamaño el usuario puede cambiar arrastrando el divisor (basado en react-resizable-panels).
+**What it is:** panels the user can resize by dragging the divider (based on react-resizable-panels).
 
-**Cuándo usarlo:** herramientas tipo editor o email (lista + detalle), donde el usuario decide cuánto espacio da a cada parte.
+**When to use it:** editor- or email-style tools (list + detail), where users decide how much space each part gets.
 
-**Archivo:** \`src/components/ui/resizable.tsx\` → \`ResizablePanelGroup\` (prop \`orientation\`), \`ResizablePanel\` (props \`defaultSize\`, \`minSize\`), \`ResizableHandle\` (prop \`withHandle\`).
+**File:** \`src/components/ui/resizable.tsx\` → \`ResizablePanelGroup\` (prop \`orientation\`), \`ResizablePanel\` (props \`defaultSize\`, \`minSize\`), \`ResizableHandle\` (prop \`withHandle\`).
 `,
       },
     },
@@ -36,26 +36,26 @@ export const Default: Story = {
   render: (args) => (
     <ResizablePanelGroup {...args} className="min-h-52 w-[480px] rounded-lg border">
       <ResizablePanel defaultSize="30%">
-        <div className="flex h-full items-center justify-center p-6 text-sm font-medium">Lista</div>
+        <div className="flex h-full items-center justify-center p-6 text-sm font-medium">List</div>
       </ResizablePanel>
       <ResizableHandle />
       <ResizablePanel defaultSize="70%">
-        <div className="flex h-full items-center justify-center p-6 text-sm font-medium">Detalle</div>
+        <div className="flex h-full items-center justify-center p-6 text-sm font-medium">Detail</div>
       </ResizablePanel>
     </ResizablePanelGroup>
   ),
 }
 
-export const ConAsa: Story = {
-  name: "Con asa visible",
+export const WithHandle: Story = {
+  name: "With visible handle",
   render: (args) => (
     <ResizablePanelGroup {...args} className="min-h-52 w-[480px] rounded-lg border">
       <ResizablePanel defaultSize="50%">
-        <div className="flex h-full items-center justify-center p-6 text-sm font-medium">Izquierda</div>
+        <div className="flex h-full items-center justify-center p-6 text-sm font-medium">Left</div>
       </ResizablePanel>
       <ResizableHandle withHandle />
       <ResizablePanel defaultSize="50%">
-        <div className="flex h-full items-center justify-center p-6 text-sm font-medium">Derecha</div>
+        <div className="flex h-full items-center justify-center p-6 text-sm font-medium">Right</div>
       </ResizablePanel>
     </ResizablePanelGroup>
   ),
@@ -66,31 +66,32 @@ export const Vertical: Story = {
   render: (args) => (
     <ResizablePanelGroup {...args} className="min-h-72 w-80 rounded-lg border">
       <ResizablePanel defaultSize="40%">
-        <div className="flex h-full items-center justify-center p-6 text-sm font-medium">Arriba</div>
+        <div className="flex h-full items-center justify-center p-6 text-sm font-medium">Top</div>
       </ResizablePanel>
       <ResizableHandle withHandle />
       <ResizablePanel defaultSize="60%">
-        <div className="flex h-full items-center justify-center p-6 text-sm font-medium">Abajo</div>
+        <div className="flex h-full items-center justify-center p-6 text-sm font-medium">Bottom</div>
       </ResizablePanel>
     </ResizablePanelGroup>
   ),
 }
 
-export const Anidados: Story = {
+export const Nested: Story = {
+  name: "Nested",
   render: (args) => (
     <ResizablePanelGroup {...args} className="min-h-72 w-[480px] rounded-lg border">
       <ResizablePanel defaultSize="40%">
-        <div className="flex h-full items-center justify-center p-6 text-sm font-medium">Navegación</div>
+        <div className="flex h-full items-center justify-center p-6 text-sm font-medium">Navigation</div>
       </ResizablePanel>
       <ResizableHandle />
       <ResizablePanel defaultSize="60%">
         <ResizablePanelGroup orientation="vertical">
           <ResizablePanel defaultSize="30%">
-            <div className="flex h-full items-center justify-center p-6 text-sm font-medium">Cabecera</div>
+            <div className="flex h-full items-center justify-center p-6 text-sm font-medium">Header</div>
           </ResizablePanel>
           <ResizableHandle />
           <ResizablePanel defaultSize="70%">
-            <div className="flex h-full items-center justify-center p-6 text-sm font-medium">Contenido</div>
+            <div className="flex h-full items-center justify-center p-6 text-sm font-medium">Content</div>
           </ResizablePanel>
         </ResizablePanelGroup>
       </ResizablePanel>

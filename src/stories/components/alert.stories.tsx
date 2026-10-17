@@ -12,11 +12,11 @@ const meta = {
     docs: {
       description: {
         component: `
-**Qué es:** mensaje destacado dentro de la página para informar de algo importante (éxito, aviso, error).
+**What it is:** a highlighted in-page message that reports something important (success, warning, error).
 
-**Cuándo usarlo:** para mensajes persistentes ligados a una sección ("Tu catálogo tiene 3 productos sin precio"). Para avisos efímeros usa **Sonner/Toast**; para pedir confirmación, **AlertDialog**.
+**When to use it:** for persistent messages tied to a section ("Your catalog has 3 products without a price"). For short-lived notices use **Sonner/Toast**; to ask for confirmation, **AlertDialog**.
 
-**Archivo:** \`src/components/ui/alert.tsx\` → \`Alert\` (prop \`variant\`), \`AlertTitle\`, \`AlertDescription\`, \`AlertAction\`.
+**File:** \`src/components/ui/alert.tsx\` → \`Alert\` (prop \`variant\`), \`AlertTitle\`, \`AlertDescription\`, \`AlertAction\`.
 `,
       },
     },
@@ -35,8 +35,8 @@ export const Default: Story = {
   render: (args) => (
     <Alert {...args}>
       <CheckCircle2Icon />
-      <AlertTitle>Pedido enviado</AlertTitle>
-      <AlertDescription>Recibirás el número de seguimiento por email.</AlertDescription>
+      <AlertTitle>Order shipped</AlertTitle>
+      <AlertDescription>You will receive the tracking number by email.</AlertDescription>
     </Alert>
   ),
 }
@@ -46,31 +46,31 @@ export const Destructive: Story = {
   render: (args) => (
     <Alert {...args}>
       <AlertCircleIcon />
-      <AlertTitle>No se pudo procesar el pago</AlertTitle>
-      <AlertDescription>Revisa los datos de la tarjeta e inténtalo de nuevo.</AlertDescription>
+      <AlertTitle>The payment could not be processed</AlertTitle>
+      <AlertDescription>Check your card details and try again.</AlertDescription>
     </Alert>
   ),
 }
 
-export const SoloTitulo: Story = {
-  name: "Solo título",
+export const TitleOnly: Story = {
+  name: "Title only",
   render: (args) => (
     <Alert {...args}>
       <InfoIcon />
-      <AlertTitle>Los cambios se guardan automáticamente.</AlertTitle>
+      <AlertTitle>Changes are saved automatically.</AlertTitle>
     </Alert>
   ),
 }
 
-export const ConAccion: Story = {
-  name: "Con acción",
+export const WithAction: Story = {
+  name: "With action",
   render: (args) => (
     <Alert {...args}>
       <InfoIcon />
-      <AlertTitle>Nueva versión del catálogo</AlertTitle>
-      <AlertDescription>Hay 24 productos nuevos para la temporada SS27.</AlertDescription>
+      <AlertTitle>New catalog version</AlertTitle>
+      <AlertDescription>There are 24 new products for the SS27 season.</AlertDescription>
       <AlertAction>
-        <Button size="xs" variant="outline">Ver</Button>
+        <Button size="xs" variant="outline">View</Button>
       </AlertAction>
     </Alert>
   ),

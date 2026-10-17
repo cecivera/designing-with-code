@@ -12,11 +12,11 @@ const meta = {
     docs: {
       description: {
         component: `
-**Qué es:** tarjeta de vista previa que aparece al pasar el ratón por un enlace.
+**What it is:** a preview card that appears when hovering over a link.
 
-**Cuándo usarlo:** para previsualizar el contenido detrás de un enlace (perfil de usuario, ficha de producto). Solo funciona con ratón: no pongas ahí información imprescindible. Para un texto corto, **Tooltip**.
+**When to use it:** to preview the content behind a link (user profile, product page). It only works with a mouse: don't put essential information there. For short text, use **Tooltip**.
 
-**Archivo:** \`src/components/ui/hover-card.tsx\` → \`HoverCard\`, \`HoverCardTrigger\`, \`HoverCardContent\` (props \`side\`, \`align\`).
+**File:** \`src/components/ui/hover-card.tsx\` → \`HoverCard\`, \`HoverCardTrigger\`, \`HoverCardContent\` (props \`side\`, \`align\`).
 `,
       },
     },
@@ -43,8 +43,8 @@ export const Default: Story = {
           </Avatar>
           <div className="grid gap-1">
             <h4 className="text-sm font-semibold">Evergreen</h4>
-            <p className="text-sm">Starter de Next.js + shadcn/ui para diseñar con código.</p>
-            <span className="text-xs text-muted-foreground">Desde octubre 2026</span>
+            <p className="text-sm">Next.js + shadcn/ui starter for designing with code.</p>
+            <span className="text-xs text-muted-foreground">Since October 2026</span>
           </div>
         </div>
       </HoverCardContent>

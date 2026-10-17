@@ -4,18 +4,18 @@ import { BoldIcon, BookmarkIcon, ItalicIcon } from "lucide-react"
 import { Toggle } from "@/components/ui/toggle"
 
 const meta = {
-  title: "Acciones/Toggle",
+  title: "Actions/Toggle",
   component: Toggle,
   tags: ["autodocs"],
   parameters: {
     docs: {
       description: {
         component: `
-**Qué es:** un botón con dos estados (activado / desactivado), como "negrita" en un editor o "guardar en favoritos".
+**What it is:** a button with two states (on / off), like "bold" in an editor or "save to favorites".
 
-**Cuándo usarlo:** para activar una opción que se ve aplicada al momento. Para ajustes de configuración que se guardan, usa **Switch**; para elegir entre varias opciones, **ToggleGroup**.
+**When to use it:** to turn on an option that is applied immediately. For configuration settings that get saved, use **Switch**; to choose between several options, **ToggleGroup**.
 
-**Archivo:** \`src/components/ui/toggle.tsx\` → \`Toggle\` (props \`variant\`, \`size\`, \`pressed\` / \`defaultPressed\`).
+**File:** \`src/components/ui/toggle.tsx\` → \`Toggle\` (props \`variant\`, \`size\`, \`pressed\` / \`defaultPressed\`).
 `,
       },
     },
@@ -31,10 +31,10 @@ const meta = {
       options: ["sm", "default", "lg"],
       table: { defaultValue: { summary: "default" } },
     },
-    defaultPressed: { control: "boolean", description: "Estado inicial." },
+    defaultPressed: { control: "boolean", description: "Initial state." },
     disabled: { control: "boolean" },
   },
-  args: { variant: "default", size: "default", "aria-label": "Negrita" },
+  args: { variant: "default", size: "default", "aria-label": "Bold" },
 } satisfies Meta<typeof Toggle>
 
 export default meta
@@ -49,7 +49,7 @@ export const Default: Story = {
 }
 
 export const Outline: Story = {
-  args: { variant: "outline", "aria-label": "Cursiva" },
+  args: { variant: "outline", "aria-label": "Italic" },
   render: (args) => (
     <Toggle {...args}>
       <ItalicIcon />
@@ -57,24 +57,25 @@ export const Outline: Story = {
   ),
 }
 
-export const ConTexto: Story = {
-  name: "Con texto",
-  args: { variant: "outline", "aria-label": "Guardar" },
+export const WithText: Story = {
+  name: "With text",
+  args: { variant: "outline", "aria-label": "Save" },
   render: (args) => (
     <Toggle {...args}>
       <BookmarkIcon data-icon="inline-start" />
-      Guardar
+      Save
     </Toggle>
   ),
 }
 
-export const Activado: Story = {
+export const On: Story = {
+  name: "Pressed",
   args: { defaultPressed: true },
   render: Default.render,
 }
 
-export const Tamanos: Story = {
-  name: "Tamaños",
+export const Sizes: Story = {
+  name: "Sizes",
   args: { variant: "outline" },
   render: (args) => (
     <div className="flex items-center gap-2">
@@ -85,7 +86,8 @@ export const Tamanos: Story = {
   ),
 }
 
-export const Deshabilitado: Story = {
+export const Disabled: Story = {
+  name: "Disabled",
   args: { disabled: true },
   render: Default.render,
 }

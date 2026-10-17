@@ -39,21 +39,21 @@ import {
 } from "@/components/ui/sidebar"
 
 const meta = {
-  title: "Navegación/Sidebar",
+  title: "Navigation/Sidebar",
   component: Sidebar,
   tags: ["autodocs"],
   parameters: {
     layout: "fullscreen",
-    // El sidebar usa posición fija: en Docs cada historia se muestra en su propio iframe.
+    // The sidebar uses fixed positioning: in Docs each story renders in its own iframe.
     docs: {
       story: { inline: false, iframeHeight: 520 },
       description: {
         component: `
-**Qué es:** barra lateral de navegación para aplicaciones (dashboards, back-offices). Se puede plegar a iconos, ocultar o mostrar como panel en móvil.
+**What it is:** side navigation bar for applications (dashboards, back offices). It can collapse to icons, hide, or show as a panel on mobile.
 
-**Cuándo usarlo:** como navegación principal de apps con muchas secciones. Necesita envolver la página en \`SidebarProvider\` y poner el contenido en \`SidebarInset\`.
+**When to use it:** as the main navigation for apps with many sections. The page must be wrapped in \`SidebarProvider\` and the content placed in \`SidebarInset\`.
 
-**Archivo:** \`src/components/ui/sidebar.tsx\` → \`SidebarProvider\`, \`Sidebar\` (props \`side\`, \`variant\`, \`collapsible\`), \`SidebarHeader\`, \`SidebarContent\`, \`SidebarGroup\`, \`SidebarMenu\`, \`SidebarMenuButton\`, \`SidebarTrigger\`, \`SidebarInset\`… (usa también \`src/hooks/use-mobile.ts\`).
+**File:** \`src/components/ui/sidebar.tsx\` → \`SidebarProvider\`, \`Sidebar\` (props \`side\`, \`variant\`, \`collapsible\`), \`SidebarHeader\`, \`SidebarContent\`, \`SidebarGroup\`, \`SidebarMenu\`, \`SidebarMenuButton\`, \`SidebarTrigger\`, \`SidebarInset\`… (also uses \`src/hooks/use-mobile.ts\`).
 `,
       },
     },
@@ -63,12 +63,12 @@ const meta = {
     variant: {
       control: "inline-radio",
       options: ["sidebar", "floating", "inset"],
-      description: "`sidebar` pegado al borde, `floating` flotante, `inset` con el contenido como tarjeta.",
+      description: "`sidebar` attached to the edge, `floating` floating, `inset` with the content as a card.",
     },
     collapsible: {
       control: "inline-radio",
       options: ["offcanvas", "icon", "none"],
-      description: "Cómo se pliega: se oculta, se queda en iconos o no se pliega.",
+      description: "How it collapses: hides, shrinks to icons, or does not collapse.",
     },
   },
   args: { side: "left", variant: "sidebar", collapsible: "icon" },
@@ -78,11 +78,11 @@ export default meta
 type Story = StoryObj<typeof meta>
 
 const items = [
-  { title: "Inicio", icon: HomeIcon, active: true },
-  { title: "Bandeja", icon: InboxIcon, badge: "12" },
-  { title: "Pedidos", icon: PackageIcon },
-  { title: "Clientes", icon: UsersIcon },
-  { title: "Informes", icon: BarChart3Icon },
+  { title: "Home", icon: HomeIcon, active: true },
+  { title: "Inbox", icon: InboxIcon, badge: "12" },
+  { title: "Orders", icon: PackageIcon },
+  { title: "Customers", icon: UsersIcon },
+  { title: "Reports", icon: BarChart3Icon },
 ]
 
 export const Default: Story = {
@@ -106,8 +106,8 @@ export const Default: Story = {
         </SidebarHeader>
         <SidebarContent>
           <SidebarGroup>
-            <SidebarGroupLabel>Plataforma</SidebarGroupLabel>
-            <SidebarGroupAction aria-label="Añadir">
+            <SidebarGroupLabel>Platform</SidebarGroupLabel>
+            <SidebarGroupAction aria-label="Add">
               <PlusIcon />
             </SidebarGroupAction>
             <SidebarGroupContent>
@@ -122,14 +122,14 @@ export const Default: Story = {
                   </SidebarMenuItem>
                 ))}
                 <Collapsible defaultOpen className="group/collapsible" render={<SidebarMenuItem />}>
-                  <CollapsibleTrigger render={<SidebarMenuButton tooltip="Catálogo" />}>
+                  <CollapsibleTrigger render={<SidebarMenuButton tooltip="Catalog" />}>
                     <PackageIcon />
-                    <span>Catálogo</span>
+                    <span>Catalog</span>
                     <ChevronRightIcon className="ml-auto transition-transform group-data-open/collapsible:rotate-90" />
                   </CollapsibleTrigger>
                   <CollapsibleContent>
                     <SidebarMenuSub>
-                      {["Calzado", "Textil", "Accesorios"].map((s) => (
+                      {["Footwear", "Apparel", "Accessories"].map((s) => (
                         <SidebarMenuSubItem key={s}>
                           <SidebarMenuSubButton href="#">{s}</SidebarMenuSubButton>
                         </SidebarMenuSubItem>
@@ -145,9 +145,9 @@ export const Default: Story = {
         <SidebarFooter>
           <SidebarMenu>
             <SidebarMenuItem>
-              <SidebarMenuButton tooltip="Ajustes">
+              <SidebarMenuButton tooltip="Settings">
                 <SettingsIcon />
-                <span>Ajustes</span>
+                <span>Settings</span>
               </SidebarMenuButton>
             </SidebarMenuItem>
           </SidebarMenu>
@@ -157,7 +157,7 @@ export const Default: Story = {
       <SidebarInset>
         <header className="flex h-12 items-center gap-2 border-b px-4">
           <SidebarTrigger />
-          <span className="text-sm font-medium">Inicio</span>
+          <span className="text-sm font-medium">Home</span>
         </header>
         <div className="grid flex-1 gap-4 p-4 md:grid-cols-3">
           <div className="h-32 rounded-lg bg-muted" />
@@ -169,14 +169,14 @@ export const Default: Story = {
   ),
 }
 
-export const Flotante: Story = { args: { variant: "floating" }, render: Default.render }
+export const Floating: Story = { name: "Floating", args: { variant: "floating" }, render: Default.render }
 
 export const Inset: Story = { args: { variant: "inset" }, render: Default.render }
 
-export const Derecha: Story = { name: "A la derecha", args: { side: "right" }, render: Default.render }
+export const Right: Story = { name: "Right side", args: { side: "right" }, render: Default.render }
 
 export const Offcanvas: Story = {
-  name: "Plegable fuera de pantalla (offcanvas)",
+  name: "Collapsible off-screen (offcanvas)",
   args: { collapsible: "offcanvas" },
   render: Default.render,
 }

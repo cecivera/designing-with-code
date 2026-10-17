@@ -7,18 +7,18 @@ import { Label } from "@/components/ui/label"
 import { Slider } from "@/components/ui/slider"
 
 const meta = {
-  title: "Utilidades/Direction",
+  title: "Utilities/Direction",
   component: DirectionProvider,
   tags: ["autodocs"],
   parameters: {
     docs: {
       description: {
         component: `
-**Qué es:** proveedor (sin aspecto visual) que indica a los componentes de Base UI si el texto va de izquierda a derecha (\`ltr\`) o de derecha a izquierda (\`rtl\`, árabe o hebreo).
+**What it is:** a provider (with no visual appearance) that tells Base UI components whether text runs left to right (\`ltr\`) or right to left (\`rtl\`, Arabic or Hebrew).
 
-**Cuándo usarlo:** solo si el producto se traduce a idiomas RTL. Envuelve la app (o una sección) y pon también \`dir="rtl"\` en el HTML.
+**When to use it:** only if the product is translated into RTL languages. Wrap the app (or a section) and also set \`dir="rtl"\` on the HTML.
 
-**Archivo:** \`src/components/ui/direction.tsx\` → \`DirectionProvider\` (prop \`direction\`), \`useDirection\`.
+**File:** \`src/components/ui/direction.tsx\` → \`DirectionProvider\` (prop \`direction\`), \`useDirection\`.
 `,
       },
     },
@@ -47,18 +47,18 @@ export const Default: Story = {
   ),
 }
 
-export const IzquierdaADerecha: Story = {
-  name: "Izquierda a derecha (ltr)",
+export const LeftToRight: Story = {
+  name: "Left to right (ltr)",
   args: { direction: "ltr" },
   render: (args) => (
     <DirectionProvider {...args}>
       <div dir={args.direction} className="grid w-72 gap-4">
         <div className="grid gap-2">
-          <Label htmlFor="ltr-input">Nombre</Label>
-          <Input id="ltr-input" placeholder="Escribe aquí" />
+          <Label htmlFor="ltr-input">Name</Label>
+          <Input id="ltr-input" placeholder="Type here" />
         </div>
         <Slider defaultValue={30} />
-        <Button>Enviar</Button>
+        <Button>Submit</Button>
       </div>
     </DirectionProvider>
   ),

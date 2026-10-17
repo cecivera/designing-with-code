@@ -1,5 +1,5 @@
-# Publica el Storybook en Chromatic en cada push.
-# Necesita el secreto CHROMATIC_PROJECT_TOKEN en GitHub
+# Publishes Storybook to Chromatic on every push.
+# Requires the CHROMATIC_PROJECT_TOKEN secret in GitHub
 # (Settings → Secrets and variables → Actions).
 name: Chromatic
 

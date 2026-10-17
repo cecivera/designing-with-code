@@ -4,18 +4,18 @@ import { Input } from "@/components/ui/input"
 import { Label } from "@/components/ui/label"
 
 const meta = {
-  title: "Formularios/Input",
+  title: "Forms/Input",
   component: Input,
   tags: ["autodocs"],
   parameters: {
     docs: {
       description: {
         component: `
-**Qué es:** campo de texto de una sola línea.
+**What it is:** a single-line text field.
 
-**Cuándo usarlo:** para datos cortos (nombre, email, búsqueda, cantidades). Para textos largos usa **Textarea**; para añadir iconos, prefijos o botones dentro del campo, **InputGroup**. Acompáñalo siempre de un **Label** (o de **Field** para label + ayuda + error).
+**When to use it:** for short data (name, email, search, quantities). For long text, use **Textarea**; to add icons, prefixes or buttons inside the field, **InputGroup**. Always pair it with a **Label** (or **Field** for label + help text + error).
 
-**Archivo:** \`src/components/ui/input.tsx\` → \`Input\` (acepta todas las props nativas de \`<input>\`).
+**File:** \`src/components/ui/input.tsx\` → \`Input\` (accepts all native \`<input>\` props).
 `,
       },
     },
@@ -27,9 +27,9 @@ const meta = {
     },
     placeholder: { control: "text" },
     disabled: { control: "boolean" },
-    "aria-invalid": { control: "boolean", description: "Marca el campo como erróneo (borde rojo)." },
+    "aria-invalid": { control: "boolean", description: "Marks the field as invalid (red border)." },
   },
-  args: { type: "text", placeholder: "Escribe aquí…", disabled: false },
+  args: { type: "text", placeholder: "Type here…", disabled: false },
   decorators: [(Story) => <div className="w-72"><Story /></div>],
 } satisfies Meta<typeof Input>
 
@@ -38,23 +38,23 @@ type Story = StoryObj<typeof meta>
 
 export const Default: Story = {}
 
-export const ConLabel: Story = {
-  name: "Con label",
+export const WithLabel: Story = {
+  name: "With label",
   render: (args) => (
     <div className="grid gap-2">
       <Label htmlFor="email">Email</Label>
-      <Input {...args} id="email" type="email" placeholder="nombre@empresa.com" />
+      <Input {...args} id="email" type="email" placeholder="name@company.com" />
     </div>
   ),
 }
 
-export const Password: Story = { args: { type: "password", placeholder: "Contraseña" } }
+export const Password: Story = { args: { type: "password", placeholder: "Password" } }
 
-export const Archivo: Story = { args: { type: "file" } }
+export const File: Story = { name: "File", args: { type: "file" } }
 
-export const ConError: Story = {
-  name: "Con error",
-  args: { "aria-invalid": true, defaultValue: "email-invalido" },
+export const WithError: Story = {
+  name: "With error",
+  args: { "aria-invalid": true, defaultValue: "invalid-email" },
 }
 
-export const Deshabilitado: Story = { args: { disabled: true, placeholder: "No editable" } }
+export const Disabled: Story = { name: "Disabled", args: { disabled: true, placeholder: "Read-only" } }

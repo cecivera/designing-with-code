@@ -20,11 +20,11 @@ const meta = {
     docs: {
       description: {
         component: `
-**Qué es:** panel que sale desde un borde y se puede cerrar arrastrando (gesto típico de móvil, "bottom sheet").
+**What it is:** a panel that slides in from an edge and can be dismissed by dragging (a typical mobile gesture, "bottom sheet").
 
-**Cuándo usarlo:** sobre todo en móvil, para acciones o detalles rápidos. En escritorio suele encajar mejor **Dialog** o **Sheet**.
+**When to use it:** mainly on mobile, for quick actions or details. On desktop, **Dialog** or **Sheet** is usually a better fit.
 
-**Archivo:** \`src/components/ui/drawer.tsx\` → \`Drawer\` (props \`swipeDirection\`, \`showSwipeHandle\`, \`snapPoints\`), \`DrawerTrigger\`, \`DrawerContent\`, \`DrawerHeader\`, \`DrawerTitle\`, \`DrawerDescription\`, \`DrawerFooter\`, \`DrawerClose\`.
+**File:** \`src/components/ui/drawer.tsx\` → \`Drawer\` (props \`swipeDirection\`, \`showSwipeHandle\`, \`snapPoints\`), \`DrawerTrigger\`, \`DrawerContent\`, \`DrawerHeader\`, \`DrawerTitle\`, \`DrawerDescription\`, \`DrawerFooter\`, \`DrawerClose\`.
 `,
       },
     },
@@ -33,10 +33,10 @@ const meta = {
     swipeDirection: {
       control: "inline-radio",
       options: ["down", "up", "left", "right"],
-      description: "Dirección del gesto para cerrar (y lado desde el que aparece).",
+      description: "Swipe direction to close (and the side it appears from).",
       table: { defaultValue: { summary: "down" } },
     },
-    showSwipeHandle: { control: "boolean", description: "Muestra la barrita para arrastrar." },
+    showSwipeHandle: { control: "boolean", description: "Shows the drag handle." },
   },
   args: { swipeDirection: "down", showSwipeHandle: true },
 } satisfies Meta<typeof Drawer>
@@ -47,11 +47,11 @@ type Story = StoryObj<typeof meta>
 export const Default: Story = {
   render: (args) => (
     <Drawer {...args}>
-      <DrawerTrigger render={<Button variant="outline" />}>Abrir drawer</DrawerTrigger>
+      <DrawerTrigger render={<Button variant="outline" />}>Open drawer</DrawerTrigger>
       <DrawerContent>
         <DrawerHeader>
-          <DrawerTitle>Cantidad objetivo</DrawerTitle>
-          <DrawerDescription>Define las unidades para la temporada.</DrawerDescription>
+          <DrawerTitle>Target quantity</DrawerTitle>
+          <DrawerDescription>Set the units for the season.</DrawerDescription>
         </DrawerHeader>
         <div className="p-4">
           <div className="flex h-40 items-center justify-center rounded-lg bg-muted text-4xl font-semibold">
@@ -59,16 +59,16 @@ export const Default: Story = {
           </div>
         </div>
         <DrawerFooter>
-          <Button>Guardar</Button>
-          <DrawerClose render={<Button variant="outline" />}>Cancelar</DrawerClose>
+          <Button>Save</Button>
+          <DrawerClose render={<Button variant="outline" />}>Cancel</DrawerClose>
         </DrawerFooter>
       </DrawerContent>
     </Drawer>
   ),
 }
 
-export const DesdeLaDerecha: Story = {
-  name: "Desde la derecha",
+export const FromRight: Story = {
+  name: "From the right",
   args: { swipeDirection: "right" },
   render: Default.render,
 }

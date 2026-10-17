@@ -22,11 +22,11 @@ const meta = {
     docs: {
       description: {
         component: `
-**Qué es:** panel que se desliza desde un borde de la pantalla (derecha por defecto).
+**What it is:** a panel that slides in from an edge of the screen (right by default).
 
-**Cuándo usarlo:** para formularios o detalles largos sin salir de la página (filtros, carrito, detalle de un pedido) o como menú en móvil. Para algo corto, **Dialog**; en móvil con gesto de arrastre, **Drawer**.
+**When to use it:** for forms or long details without leaving the page (filters, cart, order details) or as a mobile menu. For something short, use **Dialog**; on mobile with a drag gesture, **Drawer**.
 
-**Archivo:** \`src/components/ui/sheet.tsx\` → \`Sheet\`, \`SheetTrigger\`, \`SheetContent\` (props \`side\`, \`showCloseButton\`), \`SheetHeader\`, \`SheetTitle\`, \`SheetDescription\`, \`SheetFooter\`, \`SheetClose\`.
+**File:** \`src/components/ui/sheet.tsx\` → \`Sheet\`, \`SheetTrigger\`, \`SheetContent\` (props \`side\`, \`showCloseButton\`), \`SheetHeader\`, \`SheetTitle\`, \`SheetDescription\`, \`SheetFooter\`, \`SheetClose\`.
 `,
       },
     },
@@ -48,27 +48,27 @@ type Story = StoryObj<typeof meta>
 export const Default: Story = {
   render: (args) => (
     <Sheet>
-      <SheetTrigger render={<Button variant="outline" />}>Abrir filtros ({args.side})</SheetTrigger>
+      <SheetTrigger render={<Button variant="outline" />}>Open filters ({args.side})</SheetTrigger>
       <SheetContent {...args}>
         <SheetHeader>
-          <SheetTitle>Filtros</SheetTitle>
-          <SheetDescription>Acota los pedidos que quieres ver.</SheetDescription>
+          <SheetTitle>Filters</SheetTitle>
+          <SheetDescription>Narrow down the orders you want to see.</SheetDescription>
         </SheetHeader>
         <div className="grid gap-4 px-4">
           <div className="grid gap-2">
-            <Label htmlFor="s-cliente">Cliente</Label>
-            <Input id="s-cliente" placeholder="Buscar cliente" />
+            <Label htmlFor="s-customer">Customer</Label>
+            <Input id="s-customer" placeholder="Search customer" />
           </div>
         </div>
         <SheetFooter>
-          <Button>Aplicar</Button>
-          <SheetClose render={<Button variant="outline" />}>Cancelar</SheetClose>
+          <Button>Apply</Button>
+          <SheetClose render={<Button variant="outline" />}>Cancel</SheetClose>
         </SheetFooter>
       </SheetContent>
     </Sheet>
   ),
 }
 
-export const Izquierda: Story = { args: { side: "left" }, render: Default.render }
-export const Arriba: Story = { args: { side: "top" }, render: Default.render }
-export const Abajo: Story = { args: { side: "bottom" }, render: Default.render }
+export const Left: Story = { name: "Left", args: { side: "left" }, render: Default.render }
+export const Top: Story = { name: "Top", args: { side: "top" }, render: Default.render }
+export const Bottom: Story = { name: "Bottom", args: { side: "bottom" }, render: Default.render }

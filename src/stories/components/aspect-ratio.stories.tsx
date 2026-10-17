@@ -10,11 +10,11 @@ const meta = {
     docs: {
       description: {
         component: `
-**Qué es:** contenedor que mantiene una proporción fija (16:9, 1:1…) sea cual sea el ancho.
+**What it is:** a container that keeps a fixed ratio (16:9, 1:1…) whatever its width.
 
-**Cuándo usarlo:** imágenes de producto, vídeos o mapas, para que no "salten" al cargar y mantengan la forma en todos los tamaños de pantalla.
+**When to use it:** product images, videos or maps, so they don't "jump" while loading and keep their shape at every screen size.
 
-**Archivo:** \`src/components/ui/aspect-ratio.tsx\` → \`AspectRatio\` (prop obligatoria \`ratio\`, p. ej. \`16 / 9\`).
+**File:** \`src/components/ui/aspect-ratio.tsx\` → \`AspectRatio\` (required prop \`ratio\`, e.g. \`16 / 9\`).
 `,
       },
     },
@@ -24,7 +24,7 @@ const meta = {
       control: "select",
       options: [16 / 9, 4 / 3, 1, 3 / 4, 9 / 16],
       labels: { [16 / 9]: "16:9", [4 / 3]: "4:3", 1: "1:1", [3 / 4]: "3:4", [9 / 16]: "9:16" },
-      description: "Proporción ancho / alto.",
+      description: "Width / height ratio.",
     },
   },
   args: { ratio: 16 / 9 },
@@ -44,6 +44,6 @@ export const Default: Story = {
   ),
 }
 
-export const Cuadrado: Story = { name: "Cuadrado (1:1)", args: { ratio: 1 }, render: Default.render }
+export const Square: Story = { name: "Square (1:1)", args: { ratio: 1 }, render: Default.render }
 
-export const Vertical: Story = { name: "Vertical (3:4)", args: { ratio: 3 / 4 }, render: Default.render }
+export const Vertical: Story = { name: "Portrait (3:4)", args: { ratio: 3 / 4 }, render: Default.render }

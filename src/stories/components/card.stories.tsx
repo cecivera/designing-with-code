@@ -22,11 +22,11 @@ const meta = {
     docs: {
       description: {
         component: `
-**Qué es:** contenedor con fondo y borde que agrupa información relacionada (cabecera, contenido y pie).
+**What it is:** a container with a background and border that groups related information (header, content and footer).
 
-**Cuándo usarlo:** para KPIs de un dashboard, fichas de producto, formularios cortos o bloques de ajustes. No anides tarjetas dentro de tarjetas.
+**When to use it:** for dashboard KPIs, product cards, short forms or settings blocks. Don't nest cards inside cards.
 
-**Archivo:** \`src/components/ui/card.tsx\` → \`Card\` (prop \`size\`), \`CardHeader\`, \`CardTitle\`, \`CardDescription\`, \`CardAction\`, \`CardContent\`, \`CardFooter\`.
+**File:** \`src/components/ui/card.tsx\` → \`Card\` (prop \`size\`), \`CardHeader\`, \`CardTitle\`, \`CardDescription\`, \`CardAction\`, \`CardContent\`, \`CardFooter\`.
 `,
       },
     },
@@ -44,63 +44,63 @@ export const Default: Story = {
   render: (args) => (
     <Card {...args} className="w-80">
       <CardHeader>
-        <CardTitle>Ventas de octubre</CardTitle>
-        <CardDescription>Canal wholesale · España</CardDescription>
+        <CardTitle>October sales</CardTitle>
+        <CardDescription>Wholesale channel · US</CardDescription>
         <CardAction>
           <Badge variant="secondary">+12%</Badge>
         </CardAction>
       </CardHeader>
       <CardContent>
-        <p className="text-3xl font-semibold tabular-nums">48.250 €</p>
+        <p className="text-3xl font-semibold tabular-nums">$48,250</p>
       </CardContent>
       <CardFooter>
-        <Button variant="outline" size="sm">Ver informe</Button>
+        <Button variant="outline" size="sm">View report</Button>
       </CardFooter>
     </Card>
   ),
 }
 
-export const Pequena: Story = { name: "Pequeña (sm)", args: { size: "sm" }, render: Default.render }
+export const Small: Story = { name: "Small (sm)", args: { size: "sm" }, render: Default.render }
 
-export const ConFormulario: Story = {
-  name: "Con formulario",
+export const WithForm: Story = {
+  name: "With form",
   render: (args) => (
     <Card {...args} className="w-80">
       <CardHeader>
-        <CardTitle>Inicia sesión</CardTitle>
-        <CardDescription>Accede al portal de clientes.</CardDescription>
+        <CardTitle>Sign in</CardTitle>
+        <CardDescription>Access the customer portal.</CardDescription>
       </CardHeader>
       <CardContent className="grid gap-4">
         <div className="grid gap-2">
           <Label htmlFor="c-email">Email</Label>
-          <Input id="c-email" type="email" placeholder="nombre@empresa.com" />
+          <Input id="c-email" type="email" placeholder="name@company.com" />
         </div>
         <div className="grid gap-2">
-          <Label htmlFor="c-pass">Contraseña</Label>
+          <Label htmlFor="c-pass">Password</Label>
           <Input id="c-pass" type="password" />
         </div>
       </CardContent>
       <CardFooter className="flex-col gap-2">
-        <Button className="w-full">Entrar</Button>
-        <Button variant="link" className="w-full">¿Olvidaste tu contraseña?</Button>
+        <Button className="w-full">Sign in</Button>
+        <Button variant="link" className="w-full">Forgot your password?</Button>
       </CardFooter>
     </Card>
   ),
 }
 
-export const ConImagen: Story = {
-  name: "Con imagen",
+export const WithImage: Story = {
+  name: "With image",
   render: (args) => (
     <Card {...args} className="w-72">
-      {/* eslint-disable-next-line @next/next/no-img-element -- imagen de ejemplo inline */}
+      {/* eslint-disable-next-line @next/next/no-img-element -- inline sample image */}
       <img
         src="data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='320' height='180'><rect width='100%25' height='100%25' fill='%23e5e5e5'/></svg>"
-        alt="Imagen de producto"
+        alt="Product image"
         className="aspect-video w-full object-cover"
       />
       <CardHeader>
-        <CardTitle>Samba OG</CardTitle>
-        <CardDescription>Calzado · Originals</CardDescription>
+        <CardTitle>Classic Sneaker</CardTitle>
+        <CardDescription>Footwear · Lifestyle</CardDescription>
       </CardHeader>
     </Card>
   ),

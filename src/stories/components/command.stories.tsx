@@ -16,18 +16,18 @@ import {
 } from "@/components/ui/command"
 
 const meta = {
-  title: "Navegación/Command",
+  title: "Navigation/Command",
   component: Command,
   tags: ["autodocs"],
   parameters: {
     docs: {
       description: {
         component: `
-**Qué es:** buscador de comandos con filtrado instantáneo y navegación por teclado (basado en cmdk). Se puede usar incrustado o como paleta en un diálogo (⌘K).
+**What it is:** a command search with instant filtering and keyboard navigation (built on cmdk). It can be used inline or as a palette inside a dialog (⌘K).
 
-**Cuándo usarlo:** para "ir a…" o ejecutar acciones rápidamente en apps con muchas pantallas. Para elegir un valor en un formulario usa **Combobox**.
+**When to use it:** for "go to…" or running actions quickly in apps with many screens. To pick a value in a form, use **Combobox**.
 
-**Archivo:** \`src/components/ui/command.tsx\` → \`Command\`, \`CommandInput\`, \`CommandList\`, \`CommandEmpty\`, \`CommandGroup\`, \`CommandItem\`, \`CommandShortcut\`, \`CommandSeparator\`, \`CommandDialog\`.
+**File:** \`src/components/ui/command.tsx\` → \`Command\`, \`CommandInput\`, \`CommandList\`, \`CommandEmpty\`, \`CommandGroup\`, \`CommandItem\`, \`CommandShortcut\`, \`CommandSeparator\`, \`CommandDialog\`.
 `,
       },
     },
@@ -37,29 +37,29 @@ const meta = {
 export default meta
 type Story = StoryObj<typeof meta>
 
-const Contenido = () => (
+const Content = () => (
   <>
-    <CommandInput placeholder="Escribe un comando o busca…" />
+    <CommandInput placeholder="Type a command or search…" />
     <CommandList>
-      <CommandEmpty>No hay resultados.</CommandEmpty>
-      <CommandGroup heading="Sugerencias">
+      <CommandEmpty>No results found.</CommandEmpty>
+      <CommandGroup heading="Suggestions">
         <CommandItem>
-          <CalendarIcon /> Calendario de entregas
+          <CalendarIcon /> Delivery calendar
         </CommandItem>
         <CommandItem>
-          <PackageIcon /> Nuevo pedido
+          <PackageIcon /> New order
         </CommandItem>
         <CommandItem disabled>
-          <CalculatorIcon /> Calculadora
+          <CalculatorIcon /> Calculator
         </CommandItem>
       </CommandGroup>
       <CommandSeparator />
-      <CommandGroup heading="Ajustes">
+      <CommandGroup heading="Settings">
         <CommandItem>
-          <UserIcon /> Perfil <CommandShortcut>⌘P</CommandShortcut>
+          <UserIcon /> Profile <CommandShortcut>⌘P</CommandShortcut>
         </CommandItem>
         <CommandItem>
-          <SettingsIcon /> Ajustes <CommandShortcut>⌘S</CommandShortcut>
+          <SettingsIcon /> Settings <CommandShortcut>⌘S</CommandShortcut>
         </CommandItem>
       </CommandGroup>
     </CommandList>
@@ -67,10 +67,10 @@ const Contenido = () => (
 )
 
 export const Default: Story = {
-  name: "Incrustado",
+  name: "Inline",
   render: (args) => (
     <Command {...args} className="w-96 rounded-lg border">
-      <Contenido />
+      <Content />
     </Command>
   ),
 }
@@ -80,15 +80,15 @@ function DialogDemo() {
   return (
     <>
       <Button variant="outline" onClick={() => setOpen(true)}>
-        Abrir paleta de comandos
+        Open command palette
       </Button>
-      <CommandDialog open={open} onOpenChange={setOpen} title="Paleta de comandos" description="Busca un comando">
+      <CommandDialog open={open} onOpenChange={setOpen} title="Command palette" description="Search for a command">
         <Command>
-          <Contenido />
+          <Content />
         </Command>
       </CommandDialog>
     </>
   )
 }
 
-export const EnDialogo: Story = { name: "En diálogo (⌘K)", render: () => <DialogDemo /> }
+export const InDialog: Story = { name: "In a dialog (⌘K)", render: () => <DialogDemo /> }

@@ -11,11 +11,11 @@ const meta = {
     docs: {
       description: {
         component: `
-**Qué es:** notificaciones emergentes construidas con el Toast de Base UI (misma librería que el resto de componentes).
+**What it is:** pop-up notifications built with the Base UI Toast (the same library as the rest of the components).
 
-**Cuándo usarlo:** igual que **Sonner**: confirmaciones y avisos breves que no bloquean. Elige uno de los dos en tu proyecto, no ambos. Coloca un \`<Toaster />\` en el layout y usa \`toast.add({ title, description, type })\`.
+**When to use it:** same as **Sonner**: brief, non-blocking confirmations and notices. Pick one of the two for your project, not both. Place a \`<Toaster />\` in the layout and use \`toast.add({ title, description, type })\`.
 
-**Archivo:** \`src/components/ui/toast.tsx\` → \`Toaster\`, \`toast\` (manager), \`Toast\`, \`ToastTitle\`, \`ToastDescription\`, \`ToastAction\`, \`ToastClose\`…
+**File:** \`src/components/ui/toast.tsx\` → \`Toaster\`, \`toast\` (manager), \`Toast\`, \`ToastTitle\`, \`ToastDescription\`, \`ToastAction\`, \`ToastClose\`…
 `,
       },
     },
@@ -31,47 +31,47 @@ export const Default: Story = {
       <div className="flex flex-wrap gap-2">
         <Button
           variant="outline"
-          onClick={() => toast.add({ title: "Pedido guardado", description: "PED-002 · 830,00 €" })}
+          onClick={() => toast.add({ title: "Order saved", description: "ORD-002 · €830.00" })}
         >
           Normal
         </Button>
-        <Button variant="outline" onClick={() => toast.add({ title: "Catálogo publicado", type: "success" })}>
-          Éxito
+        <Button variant="outline" onClick={() => toast.add({ title: "Catalog published", type: "success" })}>
+          Success
         </Button>
-        <Button variant="outline" onClick={() => toast.add({ title: "Stock bajo", type: "warning" })}>
-          Aviso
+        <Button variant="outline" onClick={() => toast.add({ title: "Low stock", type: "warning" })}>
+          Warning
         </Button>
-        <Button variant="outline" onClick={() => toast.add({ title: "No se pudo conectar", type: "error" })}>
+        <Button variant="outline" onClick={() => toast.add({ title: "Could not connect", type: "error" })}>
           Error
         </Button>
         <Button
           variant="outline"
           onClick={() => {
             const id = toast.add({
-              title: "Pedido eliminado",
+              title: "Order deleted",
               actionProps: {
-                children: "Deshacer",
+                children: "Undo",
                 onClick() {
                   toast.close(id)
-                  toast.add({ description: "Pedido restaurado." })
+                  toast.add({ description: "Order restored." })
                 },
               },
             })
           }}
         >
-          Con acción
+          With action
         </Button>
         <Button
           variant="outline"
           onClick={() =>
             toast.promise(new Promise<void>((r) => window.setTimeout(r, 2000)), {
-              loading: "Enviando…",
-              success: "Enviado",
+              loading: "Sending…",
+              success: "Sent",
               error: "Error",
             })
           }
         >
-          Promesa
+          Promise
         </Button>
       </div>
     </Toaster>

@@ -12,18 +12,18 @@ import {
 } from "@/components/ui/breadcrumb"
 
 const meta = {
-  title: "Navegación/Breadcrumb",
+  title: "Navigation/Breadcrumb",
   component: Breadcrumb,
   tags: ["autodocs"],
   parameters: {
     docs: {
       description: {
         component: `
-**Qué es:** "migas de pan": muestra dónde está el usuario dentro de la jerarquía y le permite volver a niveles superiores.
+**What it is:** "breadcrumbs": shows where the user is within the hierarchy and lets them go back to higher levels.
 
-**Cuándo usarlo:** en estructuras con 3 o más niveles (Catálogo › Calzado › Running). No lo uses como navegación principal.
+**When to use it:** in structures with 3 or more levels (Catalog › Footwear › Running). Don't use it as the main navigation.
 
-**Archivo:** \`src/components/ui/breadcrumb.tsx\` → \`Breadcrumb\`, \`BreadcrumbList\`, \`BreadcrumbItem\`, \`BreadcrumbLink\`, \`BreadcrumbPage\`, \`BreadcrumbSeparator\`, \`BreadcrumbEllipsis\`.
+**File:** \`src/components/ui/breadcrumb.tsx\` → \`Breadcrumb\`, \`BreadcrumbList\`, \`BreadcrumbItem\`, \`BreadcrumbLink\`, \`BreadcrumbPage\`, \`BreadcrumbSeparator\`, \`BreadcrumbEllipsis\`.
 `,
       },
     },
@@ -38,11 +38,11 @@ export const Default: Story = {
     <Breadcrumb {...args}>
       <BreadcrumbList>
         <BreadcrumbItem>
-          <BreadcrumbLink href="#">Inicio</BreadcrumbLink>
+          <BreadcrumbLink href="#">Home</BreadcrumbLink>
         </BreadcrumbItem>
         <BreadcrumbSeparator />
         <BreadcrumbItem>
-          <BreadcrumbLink href="#">Catálogo</BreadcrumbLink>
+          <BreadcrumbLink href="#">Catalog</BreadcrumbLink>
         </BreadcrumbItem>
         <BreadcrumbSeparator />
         <BreadcrumbItem>
@@ -53,13 +53,13 @@ export const Default: Story = {
   ),
 }
 
-export const ConElipsis: Story = {
-  name: "Con elipsis (niveles ocultos)",
+export const WithEllipsis: Story = {
+  name: "With ellipsis (hidden levels)",
   render: (args) => (
     <Breadcrumb {...args}>
       <BreadcrumbList>
         <BreadcrumbItem>
-          <BreadcrumbLink href="#">Inicio</BreadcrumbLink>
+          <BreadcrumbLink href="#">Home</BreadcrumbLink>
         </BreadcrumbItem>
         <BreadcrumbSeparator />
         <BreadcrumbItem>
@@ -67,30 +67,30 @@ export const ConElipsis: Story = {
         </BreadcrumbItem>
         <BreadcrumbSeparator />
         <BreadcrumbItem>
-          <BreadcrumbLink href="#">Calzado</BreadcrumbLink>
+          <BreadcrumbLink href="#">Footwear</BreadcrumbLink>
         </BreadcrumbItem>
         <BreadcrumbSeparator />
         <BreadcrumbItem>
-          <BreadcrumbPage>Samba OG</BreadcrumbPage>
+          <BreadcrumbPage>Classic Sneaker</BreadcrumbPage>
         </BreadcrumbItem>
       </BreadcrumbList>
     </Breadcrumb>
   ),
 }
 
-export const SeparadorPersonalizado: Story = {
-  name: "Separador personalizado",
+export const CustomSeparator: Story = {
+  name: "Custom separator",
   render: (args) => (
     <Breadcrumb {...args}>
       <BreadcrumbList>
         <BreadcrumbItem>
-          <BreadcrumbLink href="#">Inicio</BreadcrumbLink>
+          <BreadcrumbLink href="#">Home</BreadcrumbLink>
         </BreadcrumbItem>
         <BreadcrumbSeparator>
           <SlashIcon />
         </BreadcrumbSeparator>
         <BreadcrumbItem>
-          <BreadcrumbPage>Pedidos</BreadcrumbPage>
+          <BreadcrumbPage>Orders</BreadcrumbPage>
         </BreadcrumbItem>
       </BreadcrumbList>
     </Breadcrumb>
